@@ -20,7 +20,7 @@ containerOffers.innerHTML = cardsOffers
     .map(
         (card, index) => `
         <div
-            class="w-[305px] md:w-[350px] lg:w-[400px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] p-0 flex flex-col h-[288px]">
+            class="w-[305px] md:w-[350px] lg:w-[400px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] p-0 flex flex-col h-full">
           <div class="pl-[12px] py-[16px] px-[12px] border-b border-[#2810e8] ">
             <span class="text-[#2810e8] font-bold text-[1.25rem]">${index + 1} / ${cardsOffers.length}</span>
           </div>
