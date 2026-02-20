@@ -14,12 +14,43 @@ const cardsOffers = [
         description:
             "Acompanhe números atualizados de plays, receitas e engajamento, enquanto monitora sua evolução.",
     },
+    {
+        title: "Split de Royalties",
+        description:
+            "Gerencie a divisão de royalties entre os envolvidos de forma automática e precisa.",
+    },
+    {
+        title: "Análise de dados",
+        description:
+            "Obtenha insights detalhados sobre o desempenho das suas músicas e tome decisões informadas.",
+    },
+    {
+        title: "Organização de ativos musicais",
+        description:
+            "Mantenha todos os seus ativos musicais organizados e facilmente acessíveis.",
+    },
+    {
+        title: "Previsão de royalties",
+        description:
+            "Projete seus ganhos futuros com base em dados históricos e tendências de mercado.",
+    },
+    {
+        title: "Organização dos créditos",
+        description:
+            "Gerencie e atribua créditos corretamente para todos os colaboradores das suas músicas.",
+    },
+    {
+        title: "Backup de Arquivos",
+        description:
+            "Garanta a segurança dos seus arquivos com backups automáticos e armazenamento confiável.",
+    },
+
 ];
 containerOffers.innerHTML = cardsOffers
     .map(
         (card, index) => `
         <div
-            class="w-[305px] md:w-[350px] lg:w-[400px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] p-0 flex flex-col h-full">
+            class="carousel-item min-h-[290px] flex-shrink-0 w-[205px] md:w-[316px] lg:w-[400px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] p-0 flex flex-col h-full">
           <div class="pl-[12px] py-[16px] px-[12px] border-b border-[#2810e8] ">
             <span class="text-[#2810e8] font-bold text-[1.25rem]">${index + 1} / ${cardsOffers.length}</span>
           </div>
@@ -35,6 +66,125 @@ containerOffers.innerHTML = cardsOffers
     `,
     )
     .join("");
+
+function initOffersCarousel() {
+    const carousel = document.getElementById("offers-cards");
+    const prevBtn = document.getElementById("offers-prev");
+    const nextBtn = document.getElementById("offers-next");
+    const indicatorsContainer = document.getElementById("offers-indicators");
+    
+    let currentIndex = 0;
+    let itemsPerView = 1;
+    
+    function getItemsPerView() {
+        const width = window.innerWidth;
+        if (width >= 768) return 4;
+        return 1;
+    }
+    
+    function updateItemsPerView() {
+        itemsPerView = getItemsPerView();
+        updateCarousel();
+        createIndicators();
+    }
+    
+    function createIndicators() {
+        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
+        indicatorsContainer.innerHTML = '';
+        
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = `carousel-indicator ${i === 0 ? 'active' : ''}`;
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+        }
+    }
+    
+    function updateCarousel() {
+        if (!carousel.children.length) return;
+        
+        const width = window.innerWidth;
+        const itemWidth = carousel.children[0].offsetWidth;
+        
+        const currentItemsPerView = getItemsPerView();
+        if (currentItemsPerView !== itemsPerView) {
+            itemsPerView = currentItemsPerView;
+        }
+        
+        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
+        
+        if (currentIndex >= totalSlides) {
+            currentIndex = Math.max(0, totalSlides - 1);
+        }
+        
+        let slideOffset;
+        
+        if (width >= 768) {
+            const gridGap = 41;
+            const columnsPerView = 2;
+            slideOffset = currentIndex * (columnsPerView * itemWidth + gridGap);
+        } else {
+            const mobileGap = 30;
+            slideOffset = currentIndex * itemsPerView * (itemWidth + mobileGap);
+        }
+        
+        carousel.style.transform = `translateX(-${slideOffset}px)`;
+        
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= totalSlides - 1;
+        
+        document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    function goToSlide(index) {
+        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
+        currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+        updateCarousel();
+    }
+    
+    function nextSlide() {
+        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const newItemsPerView = getItemsPerView();
+            if (newItemsPerView !== itemsPerView) {
+                currentIndex = 0;
+                updateItemsPerView();
+            }
+        }, 250);
+    });
+    
+    updateItemsPerView();
+}
+
+if (containerOffers) {
+    initOffersCarousel();
+}
 
 const containerPricing = document.getElementById("pricing-cards");
 const cardsPricing = [
@@ -157,7 +307,7 @@ containerIntelligence.innerHTML = cardsInteligence
         (card, index) => `
         <div
             
-            class="w-[305px] md:w-[350px] lg:w-[480px] bg-[#f4f5f5] border border-[#2810e8] shadow-[16px_4px_0px_0px_#2810e8] flex flex-col h-full">
+            class="w-[305px] md:w-[250px] lg:w-[480px] bg-[#f4f5f5] border border-[#2810e8] shadow-[16px_4px_0px_0px_#2810e8] flex flex-col h-full">
           <div class="px-[16px] py-[16px] border-b border-[#2810e8]">
             <span class="text-[#2810e8] font-bold text-xl">${index + 1} / ${cardsInteligence.length}</span>
           </div>

@@ -38,7 +38,6 @@ video {
     }
 }
 
-
 .btn-animated {
     position: relative;
     background: #fff200;
@@ -172,4 +171,99 @@ video {
 .faq-question.active svg {
     stroke: #fff200;
     z-index: 100000000;
+}
+.carousel-container {
+    position: relative;
+    width: 100%;
+    padding: 0 60px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease-out;
+}
+
+.carousel-item {
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: #fff200;
+    border: 3px solid #2810e8;
+    color: #2810e8;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background: #2810e8;
+    color: #fff200;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+    .carousel-container {
+        padding: 0 15px;
+    }
+
+
+    .carousel-track {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 20px 41px;
+        grid-auto-flow: column;
+    }
+
+    .carousel-btn {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-container {
+           padding: 0;
+        max-width: 890px;
+        margin: 0 auto;
+    }
+
+    .carousel-track {
+       gap: 20px 30px;
+    padding-left: 30px;
+    }
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #2810e8;
+    border: 2px solid #fff200;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator:hover {
+    transform: scale(1.1);
+}
+
+.carousel-indicator.active {
+    background: #fff200;
+    border: 2px solid #2810e8;
 }
