@@ -38,10 +38,7 @@ video {
     }
 }
 
-/* Botão animado com efeito de hover
-   Uso: Adicione a classe .btn-animated a um botão e inclua:
-   - Atributo data-text com o mesmo texto do botão
-   - Envolva o texto em um <span class="relative z-10"> */
+
 .btn-animated {
     position: relative;
     background: #fff200;
