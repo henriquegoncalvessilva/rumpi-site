@@ -42,7 +42,8 @@
 <body>
 
   <button id="menu-toggle"
-      class="fixed top-8 right-8 z-50 w-14 h-14 bg-[#fff200] border-[3px] border-[#2810e8] flex flex-col items-center justify-center gap-[6px] cursor-pointer transition-all duration-300 hover:bg-[#2810e8] group z-[101]" aria-label="Toggle menu">
+      class="fixed top-8 right-8 z-50 w-14 h-14 bg-[#fff200] border-[3px] border-[#2810e8] flex flex-col items-center justify-center gap-[6px] cursor-pointer transition-all duration-300 hover:bg-[#2810e8] group z-[101]"
+      aria-label="Toggle menu">
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
@@ -77,7 +78,7 @@
     <video class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline
         poster="assets/preloadvideobg.webp" webkit-playsinline preload="metadata" aria-label="Vídeo de fundo da Rump"
         title="Vídeo de fundo mostrando a plataforma Rump">
-      <source src="assets/videobg.mp4" type="video/mp4"> Seu navegador não suporta a tag de vídeo.
+      <source src="assets/videos/videobg.mp4" type="video/mp4"> Seu navegador não suporta a tag de vídeo.
     </video>
 
     <div class="absolute inset-0 bg-black/30 z-10"></div>
@@ -93,7 +94,7 @@
 
   <section id="sobre" class="w-full bg-[#fff200] pt-[90px] flex flex-col items-center lg:px-[320px] pb-[90px] h-full">
     <div
-        class="w-full max-w-[360px] md:max-w-[768px] lg:max-w-[1920px] px-5 lg:px-0 flex flex-col items-center gap-[36px]">
+        class="w-full max-w-[360px] md:max-w-[768px] lg:max-w-[1920px] px-5 lg:px-0 flex flex-col items-center gap-[120px] ">
 
       <div class="w-[320px] md:w-[600px] lg:w-[1280px] items-left">
         <h2
@@ -105,25 +106,47 @@
 
 
       <div
-          class="flex flex-col gap-[33px] md:flex-wrap lg:flex-nowrap md:gap-6 lg:gap-[30px] items-center md:justify-center w-fit ">
+          class="flex flex-col gap-[20px] md:grid md:grid-cols-6 md:grid-rows-4 md:gap-[20px] lg:gap-[30px] w-full max-w-[320px] md:max-w-[700px] lg:max-w-[1280px]">
 
-        <div class="w-[320px]  lg:w-[320px] h-[282px] md:h-[210px] lg:h-[282px] overflow-hidden ">
-          <video src="assets/video1.webm" class="w-full h-full object-cover" autoplay muted loop playsinline poster="assets/preloadvideo1.png"
-              preload="none" width="320" height="282" aria-label="Feature 1" />
+        <div
+            class="mosaic-item w-full h-[280px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
+          <video src="assets/videos/video1.webm" class="w-full h-full object-cover" autoplay muted loop playsinline
+              poster="assets/preloadvideo1.png" preload="none" aria-label="Video 1 mosaico" />
         </div>
 
-
-        <div class="w-[318px] md:w-[600px] lg:w-[640px] h-[334px] md:h-[600px] lg:h-[576px]   overflow-hidden">
-          <video src="assets/video2.mp4" poster="assets/preloadvideo2.png" class="w-full h-full object-cover" autoplay muted loop playsinline
-              preload="none" aria-label="Feature 2" />
+        <div
+            class="mosaic-item w-full h-[350px] md:col-span-4 md:row-span-3 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
+          <video src="assets/videos/video05.mp4" poster="assets/preloadvideo5.webp" class="w-full h-full object-cover"
+              autoplay muted loop playsinline preload="none" aria-label="Video 2 mosaico" />
         </div>
 
-
-        <div class="w-[320px] lg:w-[320px] h-[239px] md:h-[180px] lg:h-[239px] overflow-hidden   ">
-          <video src="assets/video3.webm" poster="assets/preloadvideo3.png" preload="none" class="w-full h-full object-cover" autoplay muted loop
-              playsinline alt="Feature 3ta" width="320" height="239" aria-label="Análise de performance musical"
-              title="Vídeo mostrando análise de performance" />
+        <div
+            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
+          <video src="assets/videos/video3.webm" poster="assets/preloadvideo3.webp" preload="none"
+              class="w-full h-full object-cover" autoplay muted loop playsinline aria-label="Video 3 mosaico"
+              title="Video 3 mosaico" />
         </div>
+        <div
+            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
+          <video src="assets/videos/video4.mp4" poster="assets/preloadvideo4.webp" preload="none"
+              class="w-full h-full object-cover" autoplay muted loop playsinline alt="" aria-label="Video 4 mosaico"
+              title="Video 4 mosaico" />
+        </div>
+        <div
+            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
+          <video src="assets/videos/video2.mp4" poster="assets/preloadvideo2.webp" preload="none"
+              class="w-full h-full object-cover" autoplay muted loop playsinline alt="" aria-label="Video 2 mosaico"
+              title="Video 2 mosaico" />
+        </div>
+        <div
+            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
+          <video src="assets/videos/video06.mp4" poster="assets/preloadvideo6.webp" preload="none"
+              class="w-full h-full object-cover" autoplay muted loop playsinline alt="" aria-label="Video 6 mosaico"
+              title="Video 6 mosaico" />
+        </div>
+        <div class="mosaic-item hidden md:block md:col-span-4 md:row-span-1 bg-[#2810e8] rounded-[12px] shadow-lg">
+        </div>
+
       </div>
     </div>
   </section>
@@ -321,7 +344,13 @@
         &copy; 2026 Rump by Atabaque</p>
     </div>
   </footer>
-  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+
+
+
+  <script src="/js/animations.js" defer></script>
+  <script src="/js/script.js" defer></script>
 </body>
 
 </html>
