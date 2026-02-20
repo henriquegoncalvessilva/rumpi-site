@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    background: #15151e;
+    overflow-x: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+}
+
+img,
+video {
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    display: block;
+}
+
+.sound-bar {
+    flex: 1;
+    min-width: 8px;
+    max-width: 8px;
+    min-height: 20px;
+    background: linear-gradient(180deg, #fff200 100%);
+    border-radius: 10px;
+}
+
+.team {
+    max-width: 8px;
+    background: #1900ff;
+}
+
+@media (min-width: 768px) {
+    .sound-bar {
+        max-width: 12px;
+    }
+}
+
+/* Botão animado com efeito de hover
+   Uso: Adicione a classe .btn-animated a um botão e inclua:
+   - Atributo data-text com o mesmo texto do botão
+   - Envolva o texto em um <span class="relative z-10"> */
+.btn-animated {
+    position: relative;
+    background: #fff200;
+    border: 3px solid #2810e8;
+    padding: 12px 24px;
+    color: #2810e8;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.btn-animated span {
+    color: #2810e8;
+    transition: color 0.3s ease;
+}
+
+.btn-animated::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #2810e8;
+    border-right: 1px solid #2810e8;
+    content: "";
+    transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.btn-animated::after {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: inherit;
+    width: 100%;
+    height: 100%;
+    background: #2810e8;
+    clip-path: inset(0 100%);
+    color: #fff200;
+    transition: clip-path 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    z-index: 1;
+}
+
+.btn-animated:hover {
+    color: #fff200;
+}
+
+.btn-animated:hover span {
+    color: #fff200;
+}
+
+.btn-animated:hover::before {
+    width: 100%;
+    border: #1900ff solid 3px;
+}
+
+.btn-animated:hover::after {
+    clip-path: inset(0 0);
+}
+
+.faq-question {
+    position: relative;
+    background: #fff200;
+    border: 3px solid #2810e8;
+    padding: 12px 24px;
+    color: #2810e8;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.faq-question::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #2810e8;
+    border-right: 1px solid #2810e8;
+    content: "";
+    transition: width 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.faq-question::after {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: inherit;
+    width: 100%;
+    height: 100%;
+    background: #2810e8;
+    clip-path: inset(0 100%);
+    color: #fff200;
+    transition: clip-path 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    content: attr(data-text);
+    z-index: 1;
+}
+
+.faq-question:hover,
+.faq-question.active {
+    color: #fff200;
+}
+
+.faq-question:hover h3,
+.faq-question.active h3 {
+    color: #fff200;
+    z-index: 100000000;
+}
+
+.faq-question:hover::before,
+.faq-question.active::before {
+    width: 100%;
+    border: #1900ff solid 3px;
+}
+
+.faq-question:hover::after,
+.faq-question.active::after {
+    clip-path: inset(0 0);
+}
+
+.faq-question:hover svg,
+.faq-question.active svg {
+    stroke: #fff200;
+    z-index: 100000000;
+}
