@@ -221,7 +221,7 @@ function renderFaqs(count) {
         .map(
             (card) => `
         <div
-            class="faq-item w-full bg-[#f4f5f5] border border-[#2810e8] shadow-[16px_4px_0px_0px_#2810e8] flex flex-col cursor-pointer transition-all ">
+            class="faq-item w-full bg-[#f4f5f5] border border-[#2810e8] shadow-[16px_4px_0px_0px_#2810e8] flex flex-col cursor-pointer transition-all z-1 ">
           
           <div class="border-b border-[#2810e8] py-[24px] pl-[1rem] pr-[1rem] flex justify-between items-center faq-question">
             <h3 class="text-[#2810e8] font-bold text-2xl pr-4">${card.question}</h3>

@@ -42,7 +42,7 @@
 <body>
 
   <button id="menu-toggle"
-      class="fixed top-8 right-8 z-50 w-14 h-14 bg-[#fff200] border-[3px] border-[#2810e8] flex flex-col items-center justify-center gap-[6px] cursor-pointer transition-all duration-300 hover:bg-[#2810e8] group">
+      class="fixed top-8 right-8 z-50 w-14 h-14 bg-[#fff200] border-[3px] border-[#2810e8] flex flex-col items-center justify-center gap-[6px] cursor-pointer transition-all duration-300 hover:bg-[#2810e8] group z-[101]" aria-label="Toggle menu">
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
@@ -50,8 +50,8 @@
 
 
   <nav id="menu-overlay"
-      class="fixed inset-0 bg-[#2810e8] z-40 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-in-out opacity-0 pointer-events-none backdrop-blur-sm z-[10000000000]">
-    <div class="flex flex-col items-center gap-6 w-full z-[10000000000]">
+      class="fixed inset-0 bg-[#2810e8] z-40 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-in-out opacity-0 pointer-events-none backdrop-blur-sm">
+    <div class="flex flex-col items-center gap-6 w-full z-[100]">
       <a href="#hero"
           class="menu-link text-[#fff200] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.08em] hover:text-white transition-all duration-300 transform hover:scale-110">Início</a>
       <a href="#sobre"
