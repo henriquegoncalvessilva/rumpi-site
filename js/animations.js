@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 1,
         ease: "elastic.out(1, 1)",
         scrollTrigger: {
-            markers: true,
+            
           trigger: item,
           start: "top 80%",
           end: "top 50%",
