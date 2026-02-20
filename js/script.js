@@ -39,24 +39,63 @@ containerOffers.innerHTML = cardsOffers
 const containerPricing = document.getElementById("pricing-cards");
 const cardsPricing = [
     {
-        title: "Basic",
-        price: 29,
-        features: ["- Feature 1", "- Feature 2", "- Feature 3"],
-    },
-    {
-        title: "Pro",
-        price: 59,
-        features: ["- Feature 1", "- Feature 2", "- Feature 3", "- Feature 4"],
-    },
-    {
-        title: "Enterprise",
-        price: 99,
+        header: "Plano 1 - Artista Independente",
+        title: "Sugestão de perfil: até 10 mil seguidores no Spotify",
+        price: "R$ 49.90",
         features: [
-            "- Feature 1",
-            "- Feature 2",
-            "- Feature 3",
-            "- Feature 4",
-            "- Feature 5",
+            "- Até 3 perfis para administrar",
+            "- Até 10 splits automatizados na plataforma",
+            "- Até 5 pagamentos para terceiros.",
+            "- Até 100 MB de backup por conta.",
+        ],
+    },
+    {
+        header: "Plano 2 -  Artista emergente",
+        title: "Sugestão: entre 10 e 100 mil seguidores no Spotify",
+        price: "R$149.90",
+        features: [
+            "- Até 10 perfis para administrar",
+            "- Até 50 splits automatizados na plataforma",
+            "- Até 20 pagamentos para terceiros",
+            "- Até 100 MB de backup por artista",
+        ],
+    },
+    {
+        header: "Plano 3 -  Artista estabelecido",
+        title: "Sugestão:  Entre 100 mil e 1 milhão de seguidores no Spotify",
+        price: "R$149.90",
+        features: [
+            "- Até 10 perfis para administrar",
+            "- Até 100 splits automatizados na plataforma",
+            "- Até 20 pagamentos para terceiros",
+            "- Até 100 MB de backup por artista",
+        ],
+    },
+    {
+        header: "Plano 4 - Selos e Agências",
+        title: "Sugestão: Até 30 perfis para administrar, com opção de organização por selo e sub-selos",
+        price: "R$599.90",
+        features: [
+            "- Até 30 perfis para administrar, com opção de organização por selo e sub-selos",
+            "- Até 200 split automatizados (para receber e cobrar)",
+            "- Até 50 pagamentos para terceiros",
+            "- Até 1GB de backup por artista + espaço extra para informações do selo/agência",
+        ],
+    },
+
+    {
+        header: "Plano 5 - Artista AAA",
+        title: "Sugestão: Acima de 1 milhão de seguidores no Spotify",
+        price: "A consultar",
+        features: [
+            "- Visualização de relatórios de royalties diferentes, no mesmo sistema",
+            "- Previsão de royalties por faixa",
+            "- Organização de catálogo (Fonograma e Obra)",
+            "- Verificação de registros",
+            "- Até 30 perfis para administrar, com opção de organização por selo e sub-selos",
+            "- Até 200 split automatizados (para receber e cobrar)",
+            "- Até 10 pagamentos para terceiros",
+            "- Até 10 GB de backup por artista + espaço extra para informações do selo/agência",
         ],
     },
 ];
@@ -64,15 +103,15 @@ containerPricing.innerHTML = cardsPricing
     .map(
         (card) => `
       <div
-              class="w-[305px] md:w-[520px] lg:w-[320px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] flex flex-col overflow-hidden">
-            <div class="pl-[24px] pt-[16px]">
-              <span class="text-[#2810e8] font-bold text-xl">Rump!</span>
+              class="w-[305px] md:w-[520px] lg:w-[320px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] flex flex-col overflow-hidden ">
+            <div class="pl-[18px] pr-[6px] py-[16px]">
+              <span class="text-[#2810e8] font-bold text-[18px]">${card.header}</span>
             </div>
-            <div class="pl-[24px] py-[24px] border-b border-[#2810e8]">
-              <h3 class="text-[#2810e8] font-bold text-3xl">${card.title}</h3>
+            <div class="pl-[18px] pr-[6px] py-[12px] border-b border-t border-[#2810e8]">
+              <h3 class="text-[#2810e8] font-bold text-[16px]">${card.title}</h3>
             </div>
-            <div class="px-[24px] py-[24px]">
-              <ul class="text-[#2810e8] text-lg leading-relaxed space-y-2">
+            <div class="pl-[18px] pr-[6px] py-[24px]">
+              <ul class="text-[#2810e8] text-[14px] leading-relaxed space-y-2">
                 ${card.features.map((feature) => `<li>${feature}</li>`).join("")}
               </ul>
             </div>
@@ -89,28 +128,28 @@ containerPricing.innerHTML = cardsPricing
 const containerIntelligence = document.getElementById("intelligence-cards");
 const cardsInteligence = [
     {
-        title: "Gestão de Receitas",
+        title: "Democracia dos relatórios",
 
         description:
-            "Visualize todas as suas fontes de renda em um só lugar, acompanhando ganhos por lançamento, plataforma e período. Tenha clareza sobre o que realmente gera retorno e otimize sua estratégia financeira com mais precisão.",
+            "Tenha acesso aos relatórios, dados e relatórios das suas faixas. Conecte seu parceiro na plataforma e democratize os dados.",
     },
     {
-        title: "Oportunidades de Crescimento",
+        title: "Split de Royalties",
 
         description:
             " Descubra novas possibilidades de ganhos a partir de insights estratégicos do seu catálogo. Planeje lançamentos, ativações e movimentos de mercado com base em dados reais, não em suposições.",
     },
     {
-        title: "Performance que Converte",
+        title: " Insight de dados",
 
         description:
-            "Monitore dados de streaming e engajamento com foco em resultado financeiro. Identifique quais músicas, campanhas e territórios estão gerando mais receita e direcione seus esforços para o que traz maior monetização.",
+            "Tenha acesso aos dados das lojas de música (DSP) em um só lugar, ao invés de ter que logar em cada loja. A união de dados gera insights estratégicos",
     },
     {
-        title: "Controle Financeiro do Catálogo",
+        title: "Catálogo unificado",
 
         description:
-            "Entenda o valor do seu portfólio musical com relatórios claros sobre rendimento por faixa, projeto ou período. Transforme seu catálogo em um ativo estratégico de longo prazo.",
+            "Organize todos os lançamentos em um só lugar, incluindo feats, participações e remixes. Além dos originais.",
     },
 ];
 containerIntelligence.innerHTML = cardsInteligence
@@ -138,18 +177,28 @@ containerIntelligence.innerHTML = cardsInteligence
 const containerTeam = document.getElementById("team-cards");
 const cardsTeam = [
     {
-        name: "Keanu Reeves",
-        role: "CEO & Co-founder",
+        name: "André Izidro",
+        role: "CEO e fundador",
         image: "https://randomuser.me/api/portraits/lego/1.jpg",
     },
     {
-        name: "Laurence Fishburne",
-        role: "CTO & Co-founder",
+        name: "Odilon Borges",
+        role: "CEO e fundador",
         image: "https://randomuser.me/api/portraits/lego/1.jpg",
     },
     {
-        name: "Hugo Weaving",
-        role: "Head of Product",
+        name: "Renato Martins",
+        role: "Líder de produto",
+        image: "https://randomuser.me/api/portraits/lego/1.jpg",
+    },
+    {
+        name: "André Gomes",
+        role: "CFO",
+        image: "https://randomuser.me/api/portraits/lego/1.jpg",
+    },
+    {
+        name: "Henrique Gonçalves",
+        role: "FrontEnd e UX",
         image: "https://randomuser.me/api/portraits/lego/1.jpg",
     },
 ];
