@@ -312,17 +312,17 @@ const cardsTeam = [
     {
         name: "André Izidro",
         role: "CEO e fundador",
-        image: "/assets/team_2.jpg",
+        image: "assets/team_2.jpg",
     },
     {
         name: "Odilon Borges",
         role: "CEO e fundador",
-        image: "/assets/team_1.jpg",
+        image: "assets/team_1.jpg",
     },
     {
         name: "Renato Martins",
         role: "Líder de produto",
-        image: "/assets/team_3.jpg",
+        image: "assets/team_3.jpg",
     },
     {
         name: "André Gomes",
@@ -332,7 +332,7 @@ const cardsTeam = [
     {
         name: "Henrique Gonçalves",
         role: "FrontEnd e UX",
-        image: "/assets/team_5.jpg",
+        image: "assets/team_5.jpg",
     },
 ];
 containerTeam.innerHTML = cardsTeam
