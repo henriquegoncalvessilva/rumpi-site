@@ -1,19 +1,113 @@
+document.body.classList.add('loading');
+
+window.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('preloader');
+  
+  if (preloader) {
+    preloader.classList.add('fade-out');
+    
+    setTimeout(() => {
+      preloader.style.display = 'none';
+      document.body.classList.remove('loading');
+    }, 600);
+  }
+});
+
+
 const lenis = new Lenis({
     autoRaf: true,
 });
 
-const containerOffers = document.getElementById("offers-cards");
+const mosaicItems = [
+    {
+        video: "assets/videos/video1.webm",
+        poster: "assets/preloadvideo1.webp",
+        classes: "w-full h-[280px] md:col-span-2 md:row-span-2 md:h-auto",
+        ariaLabel: "Video 1 mosaico",
+    },
+    {
+        video: "assets/videos/video05.mp4",
+        poster: "assets/preloadvideo5.webp",
+        classes: "w-full h-[350px] md:col-span-4 md:row-span-3 md:h-auto",
+        ariaLabel: "Video 2 mosaico",
+    },
+    {
+        video: "assets/videos/video3.webm",
+        poster: "assets/preloadvideo3.webp",
+        classes: "w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto",
+        ariaLabel: "Video 3 mosaico",
+        title: "Video 3 mosaico",
+    },
+    {
+        video: "assets/videos/video4.mp4",
+        poster: "assets/preloadvideo4.webp",
+        classes: "w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto",
+        ariaLabel: "Video 4 mosaico",
+        title: "Video 4 mosaico",
+    },
+    {
+        video: "assets/videos/video2.mp4",
+        poster: "assets/preloadvideo2.webp",
+        classes: "w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto",
+        ariaLabel: "Video 2 mosaico",
+        title: "Video 2 mosaico",
+    },
+    {
+        video: "assets/videos/video06.mp4",
+        poster: "assets/preloadvideo6.webp",
+        classes: "w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto",
+        ariaLabel: "Video 6 mosaico",
+        title: "Video 6 mosaico",
+    },
+    {
+        isPlaceholder: true,
+        classes: "hidden md:block md:col-span-4 md:row-span-1 bg-[#2810e8]",
+    },
+];
+
+function generateMosaic() {
+    const container = document.getElementById("mosaic-container");
+
+    if (!container) return;
+
+    mosaicItems.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = `mosaic-item ${item.classes} overflow-hidden rounded-[12px] shadow-lg`;
+
+        if (item.isPlaceholder) {
+            container.appendChild(div);
+        } else {
+            const video = document.createElement("video");
+            video.src = item.video;
+            video.poster = item.poster;
+            video.className = "w-full h-full object-cover ";
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.preload = "none";
+            video.setAttribute("aria-label", item.ariaLabel);
+
+            if (item.title) {
+                video.title = item.title;
+            }
+
+            div.appendChild(video);
+            container.appendChild(div);
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", generateMosaic);
+
+const cardsStackContainer = document.getElementById("cards-stack");
 const cardsOffers = [
     {
         title: "Gestão do catálogo",
         description:
             "Possua controle sobre seu catálogo e todos os seus lançamentos em um só lugar.",
     },
-    {
-        title: "Monitore com precisão",
-        description:
-            "Acompanhe números atualizados de plays, receitas e engajamento, enquanto monitora sua evolução.",
-    },
+
     {
         title: "Split de Royalties",
         description:
@@ -44,146 +138,35 @@ const cardsOffers = [
         description:
             "Garanta a segurança dos seus arquivos com backups automáticos e armazenamento confiável.",
     },
-
 ];
-containerOffers.innerHTML = cardsOffers
-    .map(
-        (card, index) => `
-        <div
-            class="carousel-item min-h-[290px] flex-shrink-0 w-[205px] md:w-[316px] lg:w-[400px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] p-0 flex flex-col h-full">
-          <div class="pl-[12px] py-[16px] px-[12px] border-b border-[#2810e8] ">
-            <span class="text-[#2810e8] font-bold text-[1.25rem]">${index + 1} / ${cardsOffers.length}</span>
-          </div>
-          <div class="pl-[12px] py-[24px] border-b border-[#2810e8] border-opacity-0">
-            <h3 class="text-[#2810e8] font-bold text-[1.5rem]">${card.title}</h3>
-          </div>
-          <div class="px-[12px] py-[24px]">
-            <p class="text-[#2810e8] text-[1.25rem] tracking-[-0.08em] font-medium">
-              ${card.description}
-            </p>
-          </div>
-        </div>
-    `,
-    )
-    .join("");
 
-function initOffersCarousel() {
-    const carousel = document.getElementById("offers-cards");
-    const prevBtn = document.getElementById("offers-prev");
-    const nextBtn = document.getElementById("offers-next");
-    const indicatorsContainer = document.getElementById("offers-indicators");
-    
-    let currentIndex = 0;
-    let itemsPerView = 1;
-    
-    function getItemsPerView() {
-        const width = window.innerWidth;
-        if (width >= 768) return 4;
-        return 1;
-    }
-    
-    function updateItemsPerView() {
-        itemsPerView = getItemsPerView();
-        updateCarousel();
-        createIndicators();
-    }
-    
-    function createIndicators() {
-        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
-        indicatorsContainer.innerHTML = '';
-        
-        for (let i = 0; i < totalSlides; i++) {
-            const indicator = document.createElement('div');
-            indicator.className = `carousel-indicator ${i === 0 ? 'active' : ''}`;
-            indicator.addEventListener('click', () => goToSlide(i));
-            indicatorsContainer.appendChild(indicator);
-        }
-    }
-    
-    function updateCarousel() {
-        if (!carousel.children.length) return;
-        
-        const width = window.innerWidth;
-        const itemWidth = carousel.children[0].offsetWidth;
-        
-        const currentItemsPerView = getItemsPerView();
-        if (currentItemsPerView !== itemsPerView) {
-            itemsPerView = currentItemsPerView;
-        }
-        
-        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
-        
-        if (currentIndex >= totalSlides) {
-            currentIndex = Math.max(0, totalSlides - 1);
-        }
-        
-        let slideOffset;
-        
-        if (width >= 768) {
-            const gridGap = 41;
-            const columnsPerView = 2;
-            slideOffset = currentIndex * (columnsPerView * itemWidth + gridGap);
-        } else {
-            const mobileGap = 30;
-            slideOffset = currentIndex * itemsPerView * (itemWidth + mobileGap);
-        }
-        
-        carousel.style.transform = `translateX(-${slideOffset}px)`;
-        
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= totalSlides - 1;
-        
-        document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
-        });
-    }
-    
-    function goToSlide(index) {
-        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
-        currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
-        updateCarousel();
-    }
-    
-    function nextSlide() {
-        const totalSlides = Math.ceil(cardsOffers.length / itemsPerView);
-        if (currentIndex < totalSlides - 1) {
-            currentIndex++;
-            updateCarousel();
-        }
-    }
-    
-    function prevSlide() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    }
-    
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prevSlide();
-        if (e.key === 'ArrowRight') nextSlide();
-    });
-    
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            const newItemsPerView = getItemsPerView();
-            if (newItemsPerView !== itemsPerView) {
-                currentIndex = 0;
-                updateItemsPerView();
-            }
-        }, 250);
-    });
-    
-    updateItemsPerView();
-}
-
-if (containerOffers) {
-    initOffersCarousel();
+if (cardsStackContainer) {
+    cardsStackContainer.innerHTML = cardsOffers
+        .map(
+            (card, index) => `
+           
+            <div class="stack-card" data-index="${index}">
+            
+                <div class="stack-card-inner">
+                    <div class="stack-card-header">
+                        <span class="text-[#2810e8] font-bold text-[1.25rem]">${index + 1} / ${cardsOffers.length}</span>
+                    </div>
+                    <div class="stack-card-title">
+                        <h3 class="text-[#2810e8] font-bold text-[1.5rem] md:text-[2rem]">${card.title}</h3>
+                    </div>
+                    <div class="stack-card-description">
+                        <p class="text-[#2810e8] text-[1.125rem] md:text-[1.25rem] tracking-[-0.08em] font-medium">
+                            ${card.description}
+                        </p>
+                    </div>
+                </div>
+                <div class="stack-card-side-left"></div>
+                <div class="stack-card-side-right"></div>
+                <div class="stack-card-side-top"></div>
+            </div>
+        `,
+        )
+        .join("");
 }
 
 const containerPricing = document.getElementById("pricing-cards");
