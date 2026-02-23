@@ -313,33 +313,38 @@ const cardsTeam = [
         name: "André Izidro",
         role: "CEO e fundador",
         image: "assets/team_2.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
         name: "Odilon Borges",
         role: "CEO e fundador",
         image: "assets/team_1.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
         name: "Renato Martins",
         role: "Líder de produto",
         image: "assets/team_3.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
         name: "André Gomes",
         role: "CFO",
         image: "https://randomuser.me/api/portraits/lego/1.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
         name: "Henrique Gonçalves",
         role: "FrontEnd e UX",
         image: "assets/team_5.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
 ];
 containerTeam.innerHTML = cardsTeam
     .map(
         (card) => `
          <div
-            class="w-[306px] md:w-[220px] lg:w-[300px] bg-[#f4f5f5] border border-[#2810e8] rounded-[12px] shadow-[-16px_4px_0px_0px_#2810e8] p-[10px] flex flex-col gap-[16px]">
+            class="team-card relative w-[306px] md:w-[220px] lg:w-[300px] bg-[#f4f5f5] border border-[#2810e8] rounded-[12px] shadow-[-16px_4px_0px_0px_#2810e8] p-[10px] flex flex-col gap-[16px] cursor-pointer transition-transform hover:scale-105">
           <div
               class="w-[280px] md:w-[200px] lg:w-[280px] h-[324px] md:h-[240px] lg:h-[324px] rounded-[12px] overflow-hidden mx-auto">
             <img src="${card.image}" class="w-full h-full object-cover"
@@ -351,10 +356,42 @@ containerTeam.innerHTML = cardsTeam
             </h3>
             <p class="text-[#2810e8] text-lg text-center">${card.role}</p>
           </div>
+          
+          <!-- Overlay -->
+          <div class="team-overlay absolute inset-0 bg-[#2810e8]/95 rounded-[12px] flex flex-col items-center justify-center p-6 pointer-events-none">
+            <button class="close-overlay absolute top-4 right-4 w-8 h-8 bg-[#fff200] rounded-full flex items-center justify-center hover:bg-white transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="#2810e8" viewBox="0 0 24 24" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h4 class="text-[#fff200] font-bold text-xl md:text-2xl text-center mb-2">${card.name}</h4>
+            <p class="text-[#fff200] text-sm md:text-base text-center mb-4">${card.role}</p>
+            <p class="text-white text-sm md:text-base text-center leading-relaxed">${card.description}</p>
+          </div>
         </div>            
             `,
     )
     .join("");
+
+document.querySelectorAll('.team-card').forEach(card => {
+    const overlay = card.querySelector('.team-overlay');
+    const closeBtn = card.querySelector('.close-overlay');
+    
+    card.addEventListener('click', (e) => {
+        if (!e.target.closest('.close-overlay')) {
+            overlay.classList.add('active');
+            overlay.classList.remove('pointer-events-none');
+            overlay.classList.add('pointer-events-auto');
+        }
+    });
+    
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        overlay.classList.remove('active');
+        overlay.classList.remove('pointer-events-auto');
+        overlay.classList.add('pointer-events-none');
+    });
+});
 
 const containerFaq = document.getElementById("faq-cards");
 const cardsFaq = [
