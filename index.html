@@ -40,7 +40,10 @@
 </head>
 
 <body>
-
+  <div id="preloader" class="fixed inset-0 bg-[#2810e8] z-[200] flex items-center justify-center w-[100vw] h-[100vh] flex flex-col gap-4">
+    <img src="assets/preload.gif"  fetchpriority="high" alt="Carregando..." class="w-[150px] h-[150px] md:w-[300px] md:h-[300px] object-contain" />
+    <p class="text-[#fff200] text-[1rem] md:text-[2rem] font-bold">Carregando...</p>
+  </div>
   <button id="menu-toggle"
       class="fixed top-8 right-8 z-50 w-14 h-14 bg-[#fff200] border-[3px] border-[#2810e8] flex flex-col items-center justify-center gap-[6px] cursor-pointer transition-all duration-300 hover:bg-[#2810e8] group z-[101]"
       aria-label="Toggle menu">
@@ -106,47 +109,8 @@
 
 
       <div
-          class="flex flex-col gap-[20px] md:grid md:grid-cols-6 md:grid-rows-4 md:gap-[20px] lg:gap-[30px] w-full max-w-[320px] md:max-w-[700px] lg:max-w-[1280px]">
-
-        <div
-            class="mosaic-item w-full h-[280px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
-          <video src="assets/videos/video1.webm" class="w-full h-full object-cover" autoplay muted loop playsinline
-              poster="assets/preloadvideo1.png" preload="none" aria-label="Video 1 mosaico" />
-        </div>
-
-        <div
-            class="mosaic-item w-full h-[350px] md:col-span-4 md:row-span-3 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
-          <video src="assets/videos/video05.mp4" poster="assets/preloadvideo5.webp" class="w-full h-full object-cover"
-              autoplay muted loop playsinline preload="none" aria-label="Video 2 mosaico" />
-        </div>
-
-        <div
-            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
-          <video src="assets/videos/video3.webm" poster="assets/preloadvideo3.webp" preload="none"
-              class="w-full h-full object-cover" autoplay muted loop playsinline aria-label="Video 3 mosaico"
-              title="Video 3 mosaico" />
-        </div>
-        <div
-            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
-          <video src="assets/videos/video4.mp4" poster="assets/preloadvideo4.webp" preload="none"
-              class="w-full h-full object-cover" autoplay muted loop playsinline alt="" aria-label="Video 4 mosaico"
-              title="Video 4 mosaico" />
-        </div>
-        <div
-            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
-          <video src="assets/videos/video2.mp4" poster="assets/preloadvideo2.webp" preload="none"
-              class="w-full h-full object-cover" autoplay muted loop playsinline alt="" aria-label="Video 2 mosaico"
-              title="Video 2 mosaico" />
-        </div>
-        <div
-            class="mosaic-item w-full h-[250px] md:col-span-2 md:row-span-2 md:h-auto overflow-hidden rounded-[12px] shadow-lg">
-          <video src="assets/videos/video06.mp4" poster="assets/preloadvideo6.webp" preload="none"
-              class="w-full h-full object-cover" autoplay muted loop playsinline alt="" aria-label="Video 6 mosaico"
-              title="Video 6 mosaico" />
-        </div>
-        <div class="mosaic-item hidden md:block md:col-span-4 md:row-span-1 bg-[#2810e8] rounded-[12px] shadow-lg">
-        </div>
-
+          class="flex flex-col gap-[20px] md:grid md:grid-cols-6 md:grid-rows-4 md:gap-[20px] lg:gap-[30px] w-full max-w-[320px] md:max-w-[700px] lg:max-w-[1280px]"
+          id="mosaic-container">
       </div>
     </div>
   </section>
@@ -167,25 +131,8 @@
       </div>
 
 
-      <div class="w-full relative">
-        <button id="offers-prev" class="carousel-btn carousel-btn-left left-0 md:left-[-30px] " aria-label="Anterior">
-          <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-        
-        <button id="offers-next" class="carousel-btn carousel-btn-right right-0 md:right-[-30px] " aria-label="Próximo">
-          <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-
-        <div class="carousel-container w-[320px] md:w-full">
-          <div class="carousel-track" id="offers-cards">
-          </div>
-        </div>
-
-        <div class="flex justify-center gap-2 mt-8" id="offers-indicators">
+      <div class="cards-stack-container w-full flex justify-center items-center py-[100px]">
+        <div class="cards-stack" id="cards-stack">
         </div>
       </div>
     </div>
@@ -367,11 +314,10 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+  <script src="js/script.js" fetchpriority="high" defer></script>
+  <script src="js/animations.js"  fetchpriority="high" defer></script>
 
 
-
-  <script src="js/animations.js" defer></script>
-  <script src="js/script.js" defer></script>
 </body>
 
 </html>
