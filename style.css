@@ -1,7 +1,17 @@
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background: #2810e8;
     overflow-x: hidden;
+    max-width: 100vw;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -59,7 +69,11 @@ body .loading {
     transition: clip-path 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), border 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-img,
+#logo-rumpi{
+    height: fit-content;
+    
+}
+
 video {
     width: 100%;
     height: 100%;
@@ -67,6 +81,18 @@ video {
 
 video {
     display: block;
+}
+
+section {
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#oferecemos {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 .sound-bar {
@@ -321,26 +347,30 @@ video {
 .cards-stack-container {
     position: relative;
     width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px;
+    padding: 100px 10px;
     perspective: 2000px;
     perspective-origin: center center;
+    overflow: hidden;
 }
 
 .cards-stack {
     position: relative;
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     margin: 0 auto;
+    overflow: visible;
 }
 
 .stack-card {
-    --card-depth: 3.5rem;
+    --card-depth: 1.5rem;
     position: relative;
     width: 100%;
+    max-width: 100%;
     min-height: 400px;
     background: #f4f5f5;
     border: 3px solid #2810e8;
@@ -447,22 +477,22 @@ video {
 
 @media (min-width: 768px) {
     .cards-stack {
-        max-width: 550px;
+        max-width: 520px;
     }
     
     .stack-card {
-        --card-depth: 4rem;
+        --card-depth: 2.5rem;
         min-height: 450px;
     }
 }
 
 @media (min-width: 1024px) {
     .cards-stack {
-        max-width: 650px;
+        max-width: 600px;
     }
     
     .stack-card {
-        --card-depth: 4.5rem;
+        --card-depth: 3rem;
         min-height: 500px;
     }
 }
