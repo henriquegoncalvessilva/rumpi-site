@@ -138,6 +138,11 @@ const cardsOffers = [
         description:
             "Garanta a segurança dos seus arquivos com backups automáticos e armazenamento confiável.",
     },
+    {
+        title: " O bank as a service da música",
+        description:
+            "Ofereça serviços financeiros para artistas e selos, facilitando a gestão de receitas e pagamentos.",
+    },
 ];
 
 if (cardsStackContainer) {
@@ -160,9 +165,7 @@ if (cardsStackContainer) {
                         </p>
                     </div>
                 </div>
-                <div class="stack-card-side-left"></div>
-                <div class="stack-card-side-right"></div>
-                <div class="stack-card-side-top"></div>
+
             </div>
         `,
         )
@@ -183,74 +186,73 @@ const cardsPricing = [
         ],
     },
     {
-        header: "Plano 2 -  Artista emergente",
-        title: "Sugestão: entre 10 e 100 mil seguidores no Spotify",
-        price: "R$149.90",
+        header: "Plano 2 - Artistas Emergentes",
+        title: "Sugestão de perfil: entre 10 e 100 mil seguidores no Spotify",
+        price: "R$ 149.90",
         features: [
-            "- Até 10 perfis para administrar",
+            "- Até 20 perfis para administrar",
             "- Até 50 splits automatizados na plataforma",
             "- Até 20 pagamentos para terceiros",
-            "- Até 100 MB de backup por artista",
+            "- Até 100 MB de backup por artista.",
         ],
     },
     {
-        header: "Plano 3 -  Artista estabelecido",
-        title: "Sugestão:  Entre 100 mil e 1 milhão de seguidores no Spotify",
-        price: "R$149.90",
+        header: "Plano 3 - Artistas Consolidados",
+        title: "Sugestão de perfil: entre 100 mil e 1 milhão de seguidores no Spotify",
+        price: "R$ 299.90",
         features: [
-            "- Até 10 perfis para administrar",
-            "- Até 100 splits automatizados na plataforma",
+            "- Até 30 perfis para administrar",
+            "- Até 200 splits automatizados na plataforma",
             "- Até 20 pagamentos para terceiros",
-            "- Até 100 MB de backup por artista",
+            "- Até 100 MB de backup por artista.",
         ],
     },
     {
-        header: "Plano 4 - Selos e Agências",
-        title: "Sugestão: Até 30 perfis para administrar, com opção de organização por selo e sub-selos",
-        price: "R$599.90",
+        header: "Plano 4 - Selos Musicais",
+        title: "Sugestão de perfil: Selos Musicais",
+        price: "R$ 599.90",
         features: [
-            "- Até 30 perfis para administrar, com opção de organização por selo e sub-selos",
-            "- Até 200 split automatizados (para receber e cobrar)",
-            "- Até 50 pagamentos para terceiros",
-            "- Até 1GB de backup por artista + espaço extra para informações do selo/agência",
+            "- Até 50 perfis para administrar, com opção de organização por selo e sub-selos.",
+            "- Até 300 splits automatizados (para receber e cobrar)",
+            "- Até 50 pagamentos para terceiros.",
+            "- Até 1GB de backup por artista + espaço extra para informações do selo/agência.",
+        ],
+    },
+    {
+        header: "Plano 5 - Artistas Mainstream",
+        title: "Sugestão de perfil: Acima de 1 milhão de seguidores no Spotify",
+        price: "",
+        features: [
+            "- Entre em contato para saber mais sobre o nosso plano customizado para artistas Mainstream.",
         ],
     },
 
-    {
-        header: "Plano 5 - Artista AAA",
-        title: "Sugestão: Acima de 1 milhão de seguidores no Spotify",
-        price: "A consultar",
-        features: [
-            "- Visualização de relatórios de royalties diferentes, no mesmo sistema",
-            "- Previsão de royalties por faixa",
-            "- Organização de catálogo (Fonograma e Obra)",
-            "- Verificação de registros",
-            "- Até 30 perfis para administrar, com opção de organização por selo e sub-selos",
-            "- Até 200 split automatizados (para receber e cobrar)",
-            "- Até 10 pagamentos para terceiros",
-            "- Até 10 GB de backup por artista + espaço extra para informações do selo/agência",
-        ],
-    },
+    
 ];
 containerPricing.innerHTML = cardsPricing
     .map(
         (card) => `
       <div
-              class="w-[305px] md:w-[520px] lg:w-[320px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] flex flex-col overflow-hidden ">
+              class="w-[305px] md:w-[520px] lg:w-[320px] bg-[#f4f5f5] border border-[#2810e8] shadow-[-16px_4px_0px_0px_#fff200] flex flex-col overflow-hidden self-start">
             <div class="pl-[18px] pr-[6px] py-[16px]">
               <span class="text-[#2810e8] font-bold text-[18px]">${card.header}</span>
+            </div>
+             <div class="pl-[18px] pr-[6px] py-[12px] border-t border-[#2810e8]${card.price ? "" : " hidden"}">
+              <h3 class="text-[#2810e8] font-bold text-[30px] inline">${card.price} </h3>
+              <strong class="inline text-[#2810e8]">/ mês</strong>
             </div>
             <div class="pl-[18px] pr-[6px] py-[12px] border-b border-t border-[#2810e8]">
               <h3 class="text-[#2810e8] font-bold text-[16px]">${card.title}</h3>
             </div>
-            <div class="pl-[18px] pr-[6px] py-[24px]">
+           
+            <div class="pl-[18px] pr-[6px] py-[24px]  ${!card.price ? "h-[300px]" : ""}">
               <ul class="text-[#2810e8] text-[14px] leading-relaxed space-y-2">
                 ${card.features.map((feature) => `<li>${feature}</li>`).join("")}
               </ul>
             </div>
-            <div class="w-full flex justify-center p-[24px]  border-t border-[#2810e8]">
-              <button class="btn-animated w-[250px] font-bold text-lg text-center cursor-pointer" data-text="Tenho interesse">
-                <span class="relative z-10">Tenho interesse</span>
+            <div class="w-full flex justify-center p-[24px]  border-t border-[#2810e8] ${!card.price ? "h-full" : ""}">
+              <button class="btn-animated w-[250px] font-bold text-lg text-center cursor-pointer ${!card.price ? "self-start" : ""} data-text="Tenho interesse">
+                <span class="relative z-10"> ${!card.price ? "Fale conosco" : "Tenho interesse"}</span>
               </button>
             </div>
           </div>
@@ -322,15 +324,15 @@ const cardsTeam = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
-        name: "Renato Martins",
+        name: "Renato Martini",
         role: "Líder de produto",
         image: "assets/team_3.jpg",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
         name: "André Gomes",
-        role: "CFO",
-        image: "https://randomuser.me/api/portraits/lego/1.jpg",
+        role: "CTO",
+        image: "assets/team_4.jpg",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
@@ -395,38 +397,69 @@ document.querySelectorAll('.team-card').forEach(card => {
 
 const containerFaq = document.getElementById("faq-cards");
 const cardsFaq = [
+   
     {
-        question: "O que é a plataforma Rump!?",
-        answer: "A Rump! é uma plataforma completa de Asset Rights Management (ARM) que reúne todos os seus ativos musicais em um só lugar. Oferecemos gestão de catálogo, monitoramento de receitas, análise de performance e insights estratégicos para você ter total controle sobre sua carreira musical.",
+        question: "O que é a Rumpi?",
+        answer: "A Rumpi é uma plataforma para músicos, selos e gravadoras. Organizamos e processamos as principais informações relacionadas a música, desde royalties, direitos conexos, contratos, ISRC até catálogo, distribuição, análise de dados e marketing musical, trazendo diversas funcionalidades com o fim de otimizar as músicas do seu catálogo. É uma plataforma completa para músicos, intérpretes, compositores e todos os agentes do mercado da música. Com a Rumpi você pode gerenciar todo o seu catálogo, analisar os dados das suas músicas, processar business intelligence de forma a atingir o melhor resultado, pensar em estratégias de marketing digital e ter todas as ferramentas para promover sua música em um só lugar.",
     },
     {
-        question: "Como funciona o monitoramento de receitas?",
-        answer: "Através da nossa plataforma, você visualiza todas as suas fontes de renda em tempo real, acompanhando ganhos por lançamento, plataforma e período. Com dashboards intuitivos, você identifica o que gera mais retorno e otimiza sua estratégia financeira com dados precisos.",
+        question: "O que são royalties digitais e como eles funcionam?",
+        answer: "Os royalties digitais são valores pagos pelo uso de uma obra ou de um fonograma, no caso da música, a reprodução (play ou stream, em inglês) em uma DSP (Digital Service Provider, em outras palavra, as lojas de música como Spotify). Cada execução em uma loja de música (DSP) gera um determinado valor, que é acumulado e pago para o artista pelas agregadoras digitais (conhecidas como distribuidoras). Por exemplo: quando uma música é reproduzida no Spotify, isso gera um valor que poderá ser sacado pelo artista.",
     },
     {
-        question: "Posso gerenciar múltiplos lançamentos?",
-        answer: "Sim! A Rump! permite que você gerencie todo o seu catálogo musical em um único painel. Você pode acompanhar o desempenho de cada lançamento individualmente, comparar resultados entre diferentes projetos e ter uma visão completa do seu portfólio.",
+        question: "Como vou receber royalties pela Rumpi?",
+        answer: "Com a Rumpi, você poderá conectar todas as músicas que distribuiu em agregadoras e gravadoras diferentes, para unificar o pagamento em um só lugar. Também é possível processar a divisão dos royalties (royalty split), automatizando o pagamento para outros artistas que participam da mesma música, como receber de músicas em que você participa como convidado (feat).",
     },
     {
-        question: "Quais plataformas de streaming são monitoradas?",
-        answer: "Monitoramos dados de todas as principais plataformas de streaming como Spotify, Apple Music, Deezer, YouTube Music, Amazon Music e outras. Consolidamos todas as informações em um só lugar para facilitar sua análise e tomada de decisão.",
+        question: "Quanto vou ganhar com a minha música?",
+        answer: "A Rumpi, como solução de catálogo e marketing digital para músicos, fará um uso inteligente de todos os dados recebidos pelas distribuidoras digitais e DSPs para comparar a sua faixa com outras similares e projetar o provável valor que você receberá pela sua música e reproduções. Vamos analisar como cada faixa está performando em cada loja de música (como Spotify, Deezer e Youtube Music) para te dar uma estimativa de valor.",
     },
     {
-        question: "Como os insights ajudam na minha estratégia?",
-        answer: "Nossos insights baseados em dados reais revelam oportunidades de crescimento, territórios com maior potencial, horários de maior engajamento e quais músicas têm melhor performance. Assim, você toma decisões estratégicas fundamentadas, não baseadas em suposições.",
+        question: "Quais soluções de marketing digital a Rumpi oferece?",
+        answer: `Focada em ajudar os profissionais da música, na Rumpi vamos reunir as principais ferramentas usadas na promoção de uma faixa para facilitar a vida do músico.
+        
+        <br><br>- Será possível criar smartlinks do seu lançamento para promover as faixas (com o link direto para os players de música) ou para promover suas redes sociais (agregando todos os links em um só lugar).
+        
+        <br><br>- Link de pré-save para suas faixas e análise dos resultados do lançamento.
+        
+        <br><br>- Com a Rumpi, também será possível obter templates para criar, modificar, enviar e assinar contratos com artistas de forma digital, rápida e prática.
+        
+        <br><br>- Além disso, depois de enviar o contrato ao artista, ele poderá se cadastrar na Rumpi e facilitar a divisão dos royalties para receber no futuro.
+        
+        <br><br>- Mapeamento dos locais, públicos e informações relacionadas às execuções digitais e públicas da sua faixa.
+
+        <br><br>- Armazenamento de todos os dados relativos à sua obra e seu fonograma, tais como capa, criativos em geral, masters, press releases, ficha técnica, dentre outros.
+        
+        <br><br>- Acompanhamento de oportunidades atingidas por sua música, inclusive eventuais playlists.
+        
+        <br><br>- Ferramentas para produzir arte para redes sociais**
+`
     },
     {
-        question: "Quanto custa a plataforma Rump!?",
-        answer: "Oferecemos diferentes planos de assinatura para atender desde artistas independentes até grandes catálogos. Entre em contato conosco para conhecer o plano ideal para o seu perfil e necessidades específicas.",
+        question: "O que posso fazer com os dados musicais do meu catálogo na Rumpi?",
+        answer: "A Rumpi possui um sistema de análise de dados que gera KPI e indicadores de resultado para o seu perfil de artista, projetando se o resultado está dentro do esperado para o lançamento. Cada artista e cada lançamento terá um dashboard específico para acompanhamento da performance em tempo real.",
     },
     {
-        question: "Meus dados estão seguros na plataforma?",
-        answer: "Sim! A segurança dos seus dados é nossa prioridade. Utilizamos criptografia de ponta a ponta, servidores seguros e cumprimos todas as normas de proteção de dados (LGPD). Seus ativos musicais e informações financeiras estão totalmente protegidos.",
+        question: "Como funciona o time de relacionamento da Rumpi?",
+        answer: "Possuímos também um time de relacionamento que pode ser contratado à parte para fazer o pitching ou re-pitching de uma música com as lojas, a partir da análise de dados e cruzamento de possibilidades que a faixa possui para entrar em playlists editoriais. Dentre os principais planos de ação estão: um novo plano de marketing para a música, uma sugestão de mídia e tráfego pago, assessoria de imprensa, otimização de tags e SEO para plataformas digitais.",
     },
     {
-        question: "Posso exportar meus relatórios e dados?",
-        answer: "Absolutamente! Você pode exportar todos os seus relatórios (receitas, performance, engajamento) em diversos formatos como PDF, Excel e CSV. Isso facilita compartilhar informações com sua equipe ou usar em apresentações.",
+        question: "O que é uma distribuidora digital?",
+        answer: "Uma distribuidora digital, ou agregadora digital, é uma empresa que recebe as músicas dos artistas e as distribui para os aplicativos de música (lojas digitais ou DSPs). Não é possível o artista enviar a faixa direto para o Spotify, por exemplo. O artista precisa subir as faixas pela distribuidora que será responsável pelo envio de todas as informações da música, como ISRC, capa, arquivo, créditos etc.",
     },
+    {
+        question: "Após o envio da música, como funciona o pagamento de royalties?",
+        answer: "Após o envio da música, ela ficará disponível para o público ouvir e a cada reprodução, isso gera um valor de royalty que será pago à distribuidora e então repassado ao artista, selo e/ou gravadora que distribuiu a música.",
+    },
+    {
+        question: "A Rumpi é uma distribuidora também?",
+        answer: "A Rumpi não é uma distribuidora, ela é uma solução musical para artistas gerirem todas as faixas que lançaram pelas lojas. Por exemplo: se um artista começou a distribuir pela OneRPM e em seguida fez uma colaboração com uma gravadora que distribui pela Believe, este artista poderá conferir todas as informações relacionadas às execuções das faixas pela Rumpi, sem ter que contatar a OneRPM ou a Believe. As informações estarão todas concentradas no mesmo lugar.",
+    },
+    {
+        question: "Como usar o ISRC na Rumpi?",
+        answer: "O ISRC é como o RG da música, ele é o código de identificação universal da sua música e será usado para encontrar suas faixas nas distribuidoras e gerir seu catálogo na Rumpi. Você poderá organizá-los para entender como suas faixas estão performando em cada distribuidora. Caso você faça participação de alguma outra faixa, com o ISRC você poderá ver os resultados desta faixa também.",
+    },
+   
 ];
 
 const initialFaqCount = 5;

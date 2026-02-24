@@ -30,40 +30,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     if (stackCards.length > 0) {
         stackCards.forEach((card, index) => {
-            const isEven = index % 2 === 0;
-            const isMobile = window.innerWidth < 768;
-            const startX = isEven ? (isMobile ? 100 : 300) : (isMobile ? -100 : -300);
-
-            gsap.set(card, {
-                x: startX,
-                opacity: 0,
-            });
-
-            ScrollTrigger.create({
-                trigger: card,
-                start: "top 80%",
-                end: "top 40%",
-                scrub: true,
-                onUpdate: (self) => {
-                    const progress = self.progress;
-
-                    const x = startX * (1 - progress);
-                    const opacity = progress;
-
-                    gsap.to(card, {
-                        x: x,
-                        opacity: opacity,
-                        duration: 0,
-                        ease: "none",
-                    });
+            gsap.fromTo(
+                card,
+                {
+                    opacity: 0,
                 },
-                onComplete: () => {
-                    gsap.set(card, {
-                        x: 0,
-                        opacity: 1,
-                    });
+                {
+                    opacity: 1,
+
+                    ease: "elastic.out(1, 1)",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        end: "top center",
+                        toggleActions: "play none none reverse",
+                    },
                 },
-            });
+            );
         });
     }
 
