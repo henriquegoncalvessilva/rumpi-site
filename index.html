@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rump! - Gestão Completa de Ativos Musicais | ARM Platform</title>
+  <title>Rumpi - Gestão Completa de Ativos Musicais | ARM Platform</title>
   <meta name="description"
-      content="A Rump! é a plataforma completa de Asset Rights Management (ARM) para artistas. Gerencie seu catálogo musical, monitore receitas, acompanhe performance e tome decisões estratégicas com dados reais.">
+      content="A Rumpi é a plataforma completa de Asset Rights Management (ARM) para artistas. Gerencie seu catálogo musical, monitore receitas, acompanhe performance e tome decisões estratégicas com dados reais.">
   <meta name="keywords"
       content="gestão musical, ARM, asset rights management, monitoramento de receitas musicais, plataforma para artistas, catálogo musical, streaming analytics, indústria musical">
-  <meta name="author" content="Rump!">
+  <meta name="author" content="Rumpi">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#2810e8">
 
-  <meta property="og:title" content="Rump! - Gestão de Ativos Musicais">
+  <meta property="og:title" content="Rumpi - Gestão de Ativos Musicais">
   <meta property="og:description" content="Gerencie catálogo, receitas e performance musical.">
   <meta property="og:image" content="https://rump.me/og-image.jpg">
   <meta property="og:type" content="website">
@@ -40,8 +40,9 @@
 </head>
 
 <body>
-  <div id="preloader" class="fixed inset-0 bg-[#2810e8] z-[200] flex items-center justify-center w-[100vw] h-[100vh] flex flex-col gap-4">
-    <img src="assets/preload.gif"  fetchpriority="high" alt="Carregando..." class="object-contain" />
+  <div id="preloader"
+      class="fixed inset-0 bg-[#2810e8] z-[200] flex items-center justify-center w-[100vw] h-[100vh] flex flex-col gap-4">
+    <img src="assets/preload.gif" fetchpriority="high" alt="Carregando..." class="object-contain" />
     <p class="text-[#fff200] text-[1rem] md:text-[2rem] font-bold">Carregando...</p>
   </div>
   <button id="menu-toggle"
@@ -51,7 +52,6 @@
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
     <span class="menu-line w-8 h-[3px] bg-[#2810e8] transition-all duration-300 group-hover:bg-[#fff200]"></span>
   </button>
-
 
   <nav id="menu-overlay"
       class="fixed inset-0 bg-[#2810e8] z-40 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-in-out opacity-0 pointer-events-none backdrop-blur-sm">
@@ -90,7 +90,7 @@
 
       <h1
           class="text-white  tracking-[-0.10em] text-[82px] md:text-6xl lg:text-[128px] font-bold text-center leading-tight mb-0 w-[320px] md:w-[600px] lg:w-full lg:text-left text-hero">
-        Todos os seus ativos musicais na       <span class="text-[#fff200] pl-3 pr-6 py-1 font-bold rumpi-span">Rump!</span>
+        Todos os seus ativos musicais na <span class="text-[#fff200] pl-3 pr-6 py-1 font-bold rumpi-span">Rumpi</span>
 
       </h1>
     </div>
@@ -109,8 +109,7 @@
       </div>
 
 
-      <div
-          class="flex flex-col gap-[20px] md:grid md:grid-cols-6 md:grid-rows-4 md:gap-[20px] lg:gap-[30px] w-full max-w-[320px] md:max-w-[700px] lg:max-w-[1280px]"
+      <div class="flex flex-col gap-[20px] md:grid md:grid-cols-6 md:grid-rows-4 md:gap-[20px] lg:gap-[30px] w-full max-w-[320px] md:max-w-[700px] lg:max-w-[1280px]"
           id="mosaic-container">
       </div>
     </div>
@@ -132,7 +131,7 @@
       </div>
 
 
-      <div class="cards-stack-container w-full flex justify-center items-center py-[100px]">
+      <div class="cards-stack-container">
         <div class="cards-stack" id="cards-stack">
         </div>
       </div>
@@ -155,7 +154,7 @@
         </div>
         <h2
             class="text-[#fff200] text-[2.25rem] tracking-[-0.10em] md:text-[40px] lg:text-[48px] font-extrabold leading-tight text-center mt-4">
-          Nós da Rump! ajudamos você a acessar insights valiosos para tomar
+          Nós da Rumpi ajudamos você a acessar insights valiosos para tomar
           decisões com estratégia e com mais segurança.
         </h2>
       </div>
@@ -176,7 +175,7 @@
 
         <p
             class="text-[#2810e8] text-[20px] md:text-[24px] lg:text-[28px] font-medium tracking-[-0.08em] text-center mt-4">
-         A união entre experiência e tecnologia: as mentes que impulsionam a nova indústria musical.
+          A união entre experiência e tecnologia: as mentes que impulsionam a nova indústria musical.
         </p>
       </div>
 
@@ -190,7 +189,7 @@
 
 
 
-  <section id="planos" class="w-full bg-[#2810e8] py-[40px] flex flex-col items-center">
+  <section id="planos" class="w-full bg-[#2810e8] py-[40px] flex flex-col items-center gap-[36px]">
     <div
         class="w-full max-w-[320px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1200px] px-5 flex flex-col items-center gap-[72px]">
 
@@ -205,13 +204,14 @@
       </div>
 
 
-      <div class="flex flex-col items-center justify-center md:justify-center gap-[72px] md:gap-[30px] lg:gap-[40px] w-full lg:flex-row flex-wrap"
+      <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-[40px] md:gap-[30px]  w-full place-items-center"
           id="pricing-cards">
 
 
 
       </div>
     </div>
+   
   </section>
 
   <section id="time" class="w-full bg-[#fff200] py-[40px] flex flex-col items-center">
@@ -232,7 +232,8 @@
       </div>
 
 
-      <div class="flex flex-col  md:justify-center gap-[36px] md:gap-[30px] lg:gap-[40px] w-full items-center lg:flex-row flex-wrap" id="team-cards">
+      <div class="flex flex-col  md:justify-center gap-[36px] md:gap-[30px] lg:gap-[40px] w-full items-center lg:flex-row flex-wrap"
+          id="team-cards">
 
 
       </div>
@@ -262,7 +263,7 @@
 
         <p
             class="text-[#2810e8] text-[20px] md:text-[24px] lg:text-[28px] font-medium tracking-[-0.08em] text-center mt-4">
-          Tire suas dúvidas sobre a plataforma Rump!
+          Tire suas dúvidas sobre a plataforma Rumpi
         </p>
       </div>
 
@@ -299,27 +300,32 @@
       </div>
       <p class="text-white text-center text-sm  leading-relaxed">Todos os direitos reservados
         &copy; 2026 Rump by Atabaque</p>
-        <div class="flex gap-6 mt-8 justify-center">
-          <a href="https://www.instagram.com/rumpi.music/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/@Rumpime" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-          </a>
-        </div>
+      <div class="flex gap-6 mt-8 justify-center">
+        <a href="https://www.instagram.com/rumpi.music/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
+          <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor"
+              viewBox="0 0 24 24">
+            <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@Rumpime" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor"
+              viewBox="0 0 24 24">
+            <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-  
+
   <script src="js/script.js" fetchpriority="high" defer></script>
-  <script src="js/animations.js"  fetchpriority="high" defer></script>
+  <script src="js/animations.js" fetchpriority="high" defer></script>
 
 
 </body>
