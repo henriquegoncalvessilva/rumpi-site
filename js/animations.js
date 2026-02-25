@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     );
 
 
-    const descriptions = document.querySelectorAll("#description-visualization p");
+    const descriptions = document.querySelectorAll(".description-visualization p");
 
     descriptions.forEach((description) => {
         const split = SplitText.create(description, { type: "words, chars" });

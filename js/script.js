@@ -648,7 +648,6 @@ function initSoundBars() {
 initSoundBars();
 
 
-const visualizationContainer = document.getElementById("visualization-images");
 const visualizationImages = [
     {
         title: "Lorem ipsum dolor sit amet",
@@ -672,10 +671,15 @@ const visualizationImages = [
     },
    
 ];
-visualizationContainer.innerHTML = visualizationImages
-    .map(
-        (image) => `
-        <div class="flex flex-col lg:flex-row items-center text-center justify-between lg:h-[600px] w-full lg:max-w-[1920px] mx-auto gap-[24px]" id="description-visualization">
+
+function renderVisualization() {
+    const visualizationContainer = document.getElementById("visualization-images");
+    if (!visualizationContainer) return;
+
+    visualizationContainer.innerHTML = visualizationImages
+        .map(
+            (image) => `
+        <div class="flex flex-col lg:flex-row items-center text-center justify-between lg:h-[600px] w-full lg:max-w-[1920px] mx-auto gap-[24px] description-visualization">
          <div class="lg:w-[500px]">
             <h2 class="text-[24px] lg:text-left text-[#fff200] font-bold md:text-[32px] lg:text-[40px]">${image.title}</h2>
             <p  class="text-white lg:text-left font-medium text-[14px] md:text-[16px] lg:text-[18px]">${image.description}</p>
@@ -685,5 +689,8 @@ visualizationContainer.innerHTML = visualizationImages
        
         </div>
             `,
-    )
-    .join("");
+        )
+        .join("");
+}
+
+document.addEventListener("DOMContentLoaded", renderVisualization);
