@@ -364,15 +364,13 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
-    overflow: visible;
 }
 
-.stack-card {
-    --card-depth: 0;
+.stack-card {    
     position: relative;
-    width: 100%;
+    width: 100%;    
     max-width: 100%;
-    min-height: 320px;
+    min-height: fit-content;
     background: #f4f5f5;
     border: 3px solid #2810e8;
     box-shadow: -16px 4px 0px 0px #fff200;
@@ -391,10 +389,11 @@ section {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: fit-content;
     padding: 0;
     background: #f4f5f5;
     z-index: 1;
+    gap: 10px;
 }
 
 .stack-card-header {
@@ -403,13 +402,13 @@ section {
 }
 
 .stack-card-title {
-    padding: 24px 12px;
+    padding: 0 10px 0  12px;
     border-bottom: 3px solid transparent;
 }
 
 .stack-card-description {
-    padding: 24px 12px;
-    flex: 1;
+    padding: 14px  12px;
+    
 }
 
 
@@ -424,9 +423,7 @@ section {
         gap: 30px;
     }
     
-    .stack-card {
-        min-height: 380px;
-    }
+   
 }
 
 @media (min-width: 1024px) {
@@ -435,12 +432,10 @@ section {
     }
 
     .cards-stack {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 40px;
         max-width: 1200px;
     }
     
-    .stack-card {
-        min-height: 420px;
-    }
+   
 }
