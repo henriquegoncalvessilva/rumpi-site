@@ -561,6 +561,7 @@ const menuLinks = document.querySelectorAll(".menu-link");
 let isMenuOpen = false;
 
 function openMenu() {    
+    isMenuOpen = true;
     menuOverlay.style.opacity = "1";
     menuOverlay.style.pointerEvents = "auto";
     menuToggle.setAttribute("aria-expanded", "true");
