@@ -42,9 +42,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
         "+=0.05",
     );
 
+
+    const descriptions = document.querySelectorAll("#description-visualization p");
+
+    descriptions.forEach((description) => {
+        const split = SplitText.create(description, { type: "words, chars" });
+        gsap.from(split.words, {
+            scrollTrigger: {
+                trigger: description,
+                start: "top 80%",
+                end: "top 80%",
+                toggleActions: "play play reverse reverse",
+            },
+            y: 10,
+            autoAlpha: 0,
+            stagger: 0.02,
+        });
+    });
+
     gsap.to("#text-scramble", {
         duration: 5,
-        scrambleText: "Organize, controle e planeje tudo em um só lugar.",
-        speed: 2,
+        scrambleText: "Organize, controle e planeje tudo em um só lugar.",        
     });
 });

@@ -1,19 +1,18 @@
-document.body.classList.add('loading');
+document.body.classList.add("loading");
 
-window.addEventListener('DOMContentLoaded', () => {
-  const preloader = document.getElementById('preloader');
-  
-  if (preloader) {
-    preloader.classList.add('fade-out');
-    
-    setTimeout(() => {
-      preloader.style.display = 'none';
-      document.body.classList.remove('loading');
-      preloader.remove()
-    }, 600);
-  }
+window.addEventListener("DOMContentLoaded", () => {
+    const preloader = document.getElementById("preloader");
+
+    if (preloader) {
+        preloader.classList.add("fade-out");
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+            document.body.classList.remove("loading");
+            preloader.remove();
+        }, 600);
+    }
 });
-
 
 const lenis = new Lenis({
     autoRaf: true,
@@ -227,8 +226,6 @@ const cardsPricing = [
             "- Entre em contato para saber mais sobre o nosso plano customizado para artistas Mainstream.",
         ],
     },
-
-    
 ];
 containerPricing.innerHTML = cardsPricing
     .map(
@@ -316,31 +313,36 @@ const cardsTeam = [
         name: "André Izidro",
         role: "CEO e fundador",
         image: "assets/team_2.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     },
     {
         name: "Odilon Borges",
         role: "CEO e fundador",
         image: "assets/team_1.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     },
     {
         name: "Renato Martini",
         role: "Líder de produto",
         image: "assets/team_3.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     },
     {
         name: "André Gomes",
         role: "CTO",
         image: "assets/team_4.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     },
     {
         name: "Henrique Gonçalves",
         role: "FrontEnd e UX",
         image: "assets/team_5.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     },
 ];
 containerTeam.innerHTML = cardsTeam
@@ -376,29 +378,28 @@ containerTeam.innerHTML = cardsTeam
     )
     .join("");
 
-document.querySelectorAll('.team-card').forEach(card => {
-    const overlay = card.querySelector('.team-overlay');
-    const closeBtn = card.querySelector('.close-overlay');
-    
-    card.addEventListener('click', (e) => {
-        if (!e.target.closest('.close-overlay')) {
-            overlay.classList.add('active');
-            overlay.classList.remove('pointer-events-none');
-            overlay.classList.add('pointer-events-auto');
+document.querySelectorAll(".team-card").forEach((card) => {
+    const overlay = card.querySelector(".team-overlay");
+    const closeBtn = card.querySelector(".close-overlay");
+
+    card.addEventListener("click", (e) => {
+        if (!e.target.closest(".close-overlay")) {
+            overlay.classList.add("active");
+            overlay.classList.remove("pointer-events-none");
+            overlay.classList.add("pointer-events-auto");
         }
     });
-    
-    closeBtn.addEventListener('click', (e) => {
+
+    closeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        overlay.classList.remove('active');
-        overlay.classList.remove('pointer-events-auto');
-        overlay.classList.add('pointer-events-none');
+        overlay.classList.remove("active");
+        overlay.classList.remove("pointer-events-auto");
+        overlay.classList.add("pointer-events-none");
     });
 });
 
 const containerFaq = document.getElementById("faq-cards");
 const cardsFaq = [
-   
     {
         question: "O que é a Rumpi?",
         answer: "A Rumpi é uma plataforma para músicos, selos e gravadoras. Organizamos e processamos as principais informações relacionadas a música, desde royalties, direitos conexos, contratos, ISRC até catálogo, distribuição, análise de dados e marketing musical, trazendo diversas funcionalidades com o fim de otimizar as músicas do seu catálogo. É uma plataforma completa para músicos, intérpretes, compositores e todos os agentes do mercado da música. Com a Rumpi você pode gerenciar todo o seu catálogo, analisar os dados das suas músicas, processar business intelligence de forma a atingir o melhor resultado, pensar em estratégias de marketing digital e ter todas as ferramentas para promover sua música em um só lugar.",
@@ -434,10 +435,11 @@ const cardsFaq = [
         <br><br>- Acompanhamento de oportunidades atingidas por sua música, inclusive eventuais playlists.
         
         <br><br>- Ferramentas para produzir arte para redes sociais**
-`
+`,
     },
     {
-        question: "O que posso fazer com os dados musicais do meu catálogo na Rumpi?",
+        question:
+            "O que posso fazer com os dados musicais do meu catálogo na Rumpi?",
         answer: "A Rumpi possui um sistema de análise de dados que gera KPI e indicadores de resultado para o seu perfil de artista, projetando se o resultado está dentro do esperado para o lançamento. Cada artista e cada lançamento terá um dashboard específico para acompanhamento da performance em tempo real.",
     },
     {
@@ -449,7 +451,8 @@ const cardsFaq = [
         answer: "Uma distribuidora digital, ou agregadora digital, é uma empresa que recebe as músicas dos artistas e as distribui para os aplicativos de música (lojas digitais ou DSPs). Não é possível o artista enviar a faixa direto para o Spotify, por exemplo. O artista precisa subir as faixas pela distribuidora que será responsável pelo envio de todas as informações da música, como ISRC, capa, arquivo, créditos etc.",
     },
     {
-        question: "Após o envio da música, como funciona o pagamento de royalties?",
+        question:
+            "Após o envio da música, como funciona o pagamento de royalties?",
         answer: "Após o envio da música, ela ficará disponível para o público ouvir e a cada reprodução, isso gera um valor de royalty que será pago à distribuidora e então repassado ao artista, selo e/ou gravadora que distribuiu a música.",
     },
     {
@@ -460,7 +463,6 @@ const cardsFaq = [
         question: "Como usar o ISRC na Rumpi?",
         answer: "O ISRC é como o RG da música, ele é o código de identificação universal da sua música e será usado para encontrar suas faixas nas distribuidoras e gerir seu catálogo na Rumpi. Você poderá organizá-los para entender como suas faixas estão performando em cada distribuidora. Caso você faça participação de alguma outra faixa, com o ISRC você poderá ver os resultados desta faixa também.",
     },
-   
 ];
 
 const initialFaqCount = 5;
@@ -558,8 +560,7 @@ const menuLines = document.querySelectorAll(".menu-line");
 const menuLinks = document.querySelectorAll(".menu-link");
 let isMenuOpen = false;
 
-function openMenu() {
-    isMenuOpen = true;
+function openMenu() {    
     menuOverlay.style.opacity = "1";
     menuOverlay.style.pointerEvents = "auto";
     menuToggle.setAttribute("aria-expanded", "true");
@@ -568,7 +569,7 @@ function openMenu() {
     menuLines[0].style.transform = "rotate(45deg) translateY(9px)";
     menuLines[1].style.opacity = "0";
     menuLines[2].style.transform = "rotate(-45deg) translateY(-9px)";
-}
+}   
 
 function closeMenu() {
     isMenuOpen = false;
@@ -645,3 +646,44 @@ function initSoundBars() {
 }
 
 initSoundBars();
+
+
+const visualizationContainer = document.getElementById("visualization-images");
+const visualizationImages = [
+    {
+        title: "Lorem ipsum dolor sit amet",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde culpa consequuntur eligendi aut nobis vero optio quod a natus voluptatem, accusantium sed rem aliquid hic minus mollitia fuga. Quae, fuga!",
+        src: "assets/prints/p1.png",
+    },
+     {
+        title: "Lorem ipsum dolor sit amet",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde culpa consequuntur eligendi aut nobis vero optio quod a natus voluptatem, accusantium sed rem aliquid hic minus mollitia fuga. Quae, fuga!",
+        src: "assets/prints/p1.png",
+    },
+     {
+        title: "Lorem ipsum dolor sit amet",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde culpa consequuntur eligendi aut nobis vero optio quod a natus voluptatem, accusantium sed rem aliquid hic minus mollitia fuga. Quae, fuga!",
+        src: "assets/prints/p1.png",
+    },
+     {
+        title: "Lorem ipsum dolor sit amet",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde culpa consequuntur eligendi aut nobis vero optio quod a natus voluptatem, accusantium sed rem aliquid hic minus mollitia fuga. Quae, fuga!",
+        src: "assets/prints/p1.png",
+    },
+   
+];
+visualizationContainer.innerHTML = visualizationImages
+    .map(
+        (image) => `
+        <div class="flex flex-col lg:flex-row items-center text-center justify-between lg:h-[600px] w-full lg:max-w-[1920px] mx-auto gap-[24px]" id="description-visualization">
+         <div class="lg:w-[500px]">
+            <h2 class="text-[24px] lg:text-left text-[#fff200] font-bold md:text-[32px] lg:text-[40px]">${image.title}</h2>
+            <p  class="text-white lg:text-left font-medium text-[14px] md:text-[16px] lg:text-[18px]">${image.description}</p>
+         </div>
+       
+        <img src="${image.src}" class="w-full lg:w-1/2" alt="">
+       
+        </div>
+            `,
+    )
+    .join("");
