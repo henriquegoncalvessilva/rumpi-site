@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       preloader.style.display = 'none';
       document.body.classList.remove('loading');
+      preloader.remove()
     }, 600);
   }
 });
@@ -139,7 +140,7 @@ const cardsOffers = [
             "Garanta a segurança dos seus arquivos com backups automáticos e armazenamento confiável.",
     },
     {
-        title: " O bank as a service da música",
+        title: " O bank SaaS da música",
         description:
             "Ofereça serviços financeiros para artistas e selos, facilitando a gestão de receitas e pagamentos.",
     },
@@ -154,13 +155,13 @@ if (cardsStackContainer) {
             
                 <div class="stack-card-inner">
                     <div class="stack-card-header">
-                        <span class="text-[#2810e8] font-bold text-[1.25rem]">${index + 1} / ${cardsOffers.length}</span>
+                        <span class="text-[#2810e8] font-bold text-[16px]">${index + 1} / ${cardsOffers.length}</span>
                     </div>
                     <div class="stack-card-title">
-                        <h3 class="text-[#2810e8] font-bold text-[1.5rem] md:text-[2rem]">${card.title}</h3>
+                        <h3 class="text-[#2810e8] font-bold  md:text-[1.5rem]">${card.title}</h3>
                     </div>
                     <div class="stack-card-description">
-                        <p class="text-[#2810e8] text-[1.125rem] md:text-[1.25rem] tracking-[-0.08em] font-medium">
+                        <p class="text-[#2810e8] text-[1rem] tracking-[-0.08em] font-medium">
                             ${card.description}
                         </p>
                     </div>
@@ -294,13 +295,13 @@ containerIntelligence.innerHTML = cardsInteligence
             
             class="w-[305px] md:w-[250px] lg:w-[480px] bg-[#f4f5f5] border border-[#2810e8] shadow-[16px_4px_0px_0px_#2810e8] flex flex-col h-full">
           <div class="px-[16px] py-[16px] border-b border-[#2810e8]">
-            <span class="text-[#2810e8] font-bold text-xl">${index + 1} / ${cardsInteligence.length}</span>
+            <span class="text-[#2810e8] font-bold">${index + 1} / ${cardsInteligence.length}</span>
           </div>
           <div class="border-b border-[#2810e8] py-[24px] px-[1rem]">
-            <h3 class="text-[#2810e8] font-bold text-2xl">${card.title}</h3>
+            <h3 class="text-[#2810e8] font-bold text-[1.5rem]">${card.title}</h3>
           </div>
           <div class="px-[16px] py-[24px] px-[1rem]">
-            <p class="text-[#2810e8] text-[1.25rem] font-medium tracking-[-0.08em]">
+            <p class="text-[#2810e8] text-[16px] font-medium tracking-[-0.08em]">
               ${card.description}
             </p>
           </div>

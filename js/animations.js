@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(ScrollTrigger, SplitText);
+    gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin);
 
     const mosaicItems = document.querySelectorAll(".mosaic-item");
 
@@ -26,30 +26,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         );
     });
 
-    const stackCards = document.querySelectorAll(".stack-card");
-
-    if (stackCards.length > 0) {
-        stackCards.forEach((card, index) => {
-            gsap.fromTo(
-                card,
-                {
-                    opacity: 0,
-                },
-                {
-                    opacity: 1,
-
-                    ease: "elastic.out(1, 1)",
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 85%",
-                        end: "top center",
-                        toggleActions: "play none none reverse",
-                    },
-                },
-            );
-        });
-    }
-
     let split = SplitText.create(".text-hero", { type: "words, chars" });
     let tl = gsap.timeline();
     tl.from(split.chars, {
@@ -65,4 +41,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         },
         "+=0.05",
     );
+
+    gsap.to("#text-scramble", {
+        duration: 5,
+        scrambleText: "Organize, controle e planeje tudo em um só lugar.",
+        speed: 2,
+    });
 });
