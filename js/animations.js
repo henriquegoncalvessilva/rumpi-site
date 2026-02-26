@@ -42,8 +42,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         "+=0.05",
     );
 
-
-    const descriptions = document.querySelectorAll(".description-visualization p");
+    const descriptions = document.querySelectorAll(
+        ".description-visualization p",
+    );
 
     descriptions.forEach((description) => {
         const split = SplitText.create(description, { type: "words, chars" });
@@ -62,6 +63,69 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     gsap.to("#text-scramble", {
         duration: 5,
-        scrambleText: "Organize, controle e planeje tudo em um só lugar.",        
+        scrambleText: "Organize, controle e planeje tudo em um só lugar.",
+    });
+
+    const ytMask = document.getElementById("yt-mask");
+    const ytPlayBtn = document.getElementById("yt-play-btn");
+    const ytSection = document.getElementById("video-youtube");
+
+    if (ytMask && ytSection) {
+        const ytTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ytSection,
+                start: "50% 80%",
+                end: "bottom bottom",
+                scrub: 2,
+            },
+        });
+
+        ytTl.to(ytMask, {
+            clipPath: "circle(150% at 50% 50%)",
+            ease: "none",
+        });
+    }
+
+    const ytPopup = document.getElementById("yt-popup");
+    const ytPopupClose = document.getElementById("yt-popup-close");
+    const ytIframe = document.getElementById("yt-iframe");
+    const ytVideoUrl = "https://www.youtube.com/embed/2SmGEyy85Vc?autoplay=1";
+
+    if (ytPlayBtn && ytPopup) {
+        ytPlayBtn.addEventListener("click", () => {
+            ytIframe.src = ytVideoUrl;
+            ytPopup.classList.add("active");
+        });
+
+        ytPopupClose.addEventListener("click", () => {
+            ytPopup.classList.remove("active");
+            ytIframe.src = "";
+        });
+
+        ytPopup.addEventListener("click", (e) => {
+            if (e.target === ytPopup) {
+                ytPopup.classList.remove("active");
+                ytIframe.src = "";
+            }
+        });
+    }
+
+    const paths = document.querySelectorAll(".path-svg path");
+    paths.forEach((path) => {
+        const pathLength = path.getTotalLength();
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+        gsap.to(path.style, {
+            strokeDashoffset: 10,
+            ease: "none",
+            scrollTrigger: {
+                markers: true,
+                trigger: path,
+                start: "10% 80%",
+                end: "bottom 150%",
+                scrub: 2,
+                duration: 2,
+            },
+        });
     });
 });

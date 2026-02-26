@@ -428,7 +428,7 @@ section {
 
 @media (min-width: 1024px) {
     .cards-stack-container {
-        padding: 80px 40px;
+        padding: 40px 40px;
     }
 
     .cards-stack {
@@ -438,4 +438,9 @@ section {
     }
     
    
+}
+
+#yt-popup.active {
+    opacity: 1;
+    pointer-events: auto;
 }

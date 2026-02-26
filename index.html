@@ -41,7 +41,7 @@
 
 <body>
   <div id="preloader"
-      class="fixed inset-0 bg-[#2810e8] z-[200] flex items-center justify-center w-[100vw] h-[100vh] flex flex-col gap-4">
+      class="fixed inset-0 bg-[#2810e8] z-[200] flex items-center justify-center w-[100vw] h-dvh flex flex-col gap-4">
     <img src="assets/preload.gif" fetchpriority="high" alt="Carregando..." class="object-contain" />
     <p class="text-[#fff200] text-[1rem] md:text-[2rem] font-bold">Carregando...</p>
   </div>
@@ -62,6 +62,8 @@
           class="menu-link text-[#fff200] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.08em] hover:text-white transition-all duration-300 transform hover:scale-110">Sobre</a>
       <a href="#oferecemos"
           class="menu-link text-[#fff200] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.08em] hover:text-white transition-all duration-300 transform hover:scale-110">Oferecemos</a>
+      <a href="#visualizacao"
+          class="menu-link text-[#fff200] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.08em] hover:text-white transition-all duration-300 transform hover:scale-110">Visualização</a>
       <a href="#inteligencia"
           class="menu-link text-[#fff200] text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.08em] hover:text-white transition-all duration-300 transform hover:scale-110">Inteligência</a>
       <a href="#planos"
@@ -136,15 +138,46 @@
     </div>
   </section>
 
-  <section
-      class="w-full bg-[#2810e8] py-[40px] lg:py-[200px] flex items-center justify-center overflow-hidden sound-bars">
+  <section id="video-youtube"
+      class="pb-[90px]w-full bg-[#2810e8] flex items-center justify-center overflow-hidden relative h-[120vh]">
+    <div class="sticky top-0 w-full h-full flex items-center justify-center overflow-hidden ">
+      <div id="yt-mask" class="absolute inset-0 flex items-center justify-center overflow-hidden"
+          style="clip-path: circle(0% at 50% 50%);">
+        <img src="assets/preloadvideoyt.jpg" alt="Video thumbnail" class="w-full h-full object-cover" />
+      </div>
+      <button id="yt-play-btn"
+          class="absolute z-1000 w-20 h-20 md:w-24 md:h-24 bg-[#fff200] rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110  border-[6px] border-white"
+          aria-label="Reproduzir vídeo">
+        <svg class="w-10 h-10 md:w-12 md:h-12 text-[#2810e8] ml-1" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
+    </div>
+
     <div
-        class="sound-bars-container flex items-center justify-center gap-[8px] md:gap-[12px] h-[200px] md:h-[300px] w-full px-5">
+        class="sound-bars-container flex items-center justify-center gap-[8px] md:gap-[12px] h-[200px] md:h-[300px] w-full px-5 absolute bottom-40 left-0">
     </div>
   </section>
 
+  <div id="yt-popup"
+      class="fixed inset-0 z-[300] flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300">
+    <button id="yt-popup-close"
+        class="absolute top-6 right-6 w-12 h-12 bg-[#fff200] rounded-full flex items-center justify-center cursor-pointer z-10 border-none hover:scale-110 transition-transform"
+        aria-label="Fechar vídeo">
+      <svg class="w-6 h-6" fill="none" stroke="#2810e8" viewBox="0 0 24 24" stroke-width="3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="w-[90vw] max-w-[960px] aspect-video">
+      <iframe id="yt-iframe" class="w-full h-full" src="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+    </div>
+  </div>
 
-  <section id="visualizacao" class="w-full bg-[#2810e8] pb-[90px] flex flex-col items-center border-t border-[#2810e8]">
+
+
+  <section id="visualizacao" class="w-full bg-[#2810e8] flex flex-col items-center border-t border-[#2810e8] pt-[90px]">
     <div
         class="w-full max-w-[360px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1600px] px-5 flex flex-col items-center gap-[48px]">
       <div class="flex flex-col items-center gap-[16px] w-[320px] md:w-[600px] lg:w-full max-w-[1280px]">
@@ -159,7 +192,7 @@
       </div>
 
       <div class="flex flex-col w-full items-center gap-16 justify-center" id="visualization-images">
-       
+
       </div>
     </div>
   </section>
@@ -286,41 +319,43 @@
     </div>
   </section>
 
-  <footer class="w-full bg-[#0a004e] py-[40px] flex flex-col items-center border-t border-[#2810e8]">
+  <footer
+      class="w-full h-[100vh] bg-[#0a004e] py-[40px] justify-center flex flex-col items-center border-t border-[#2810e8] relative">
     <div
-        class="w-full max-w-[360px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1200px] px-5 flex flex-col items-center gap-[20px]">
+        class="w-full max-w-[360px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1200px] px-5 flex flex-col items-center gap-[80px] relative">
+      
+        <div class="flex flex-col items-start gap-[37px] w-[320px] md:w-[520px] lg:w-[1160px]">
+          <h2 class="text-white text-center text-[30px] md:text-[40px] lg:text-[70px] font-bold leading-tight">
+            Faça parte da nova revolução da música junto com a
+          </h2>
+        </div>
+      
 
-      <div class="flex flex-col items-start gap-[37px] w-[320px] md:w-[520px] lg:w-[800px]">
-        <h2 class="text-white text-center text-[30px] md:text-[40px] lg:text-[42px] font-bold leading-tight">
-          Faça parte da nova revolução da música junto com a
-        </h2>
-      </div>
-
-
-      </button>
-      <div class="w-[186px] md:w-[250px] lg:w-[300px] h-[50px]  lg:h-[80px]">
-        <img src="assets/logo-rump.svg" class="w-full h-full object-contain" alt="Rump Logo" />
-      </div>
-      <p class="text-white text-center text-sm inline-block  leading-relaxed">Todos os direitos reservados
-        &copy; 2026 Rump by <a href="https://www.atabaque.biz/" target="_blank" rel="noopener noreferrer"
-            class="text-white font-bold text-sm transition-colors inline-block">Atabaque</a> </p>
-      <div class="flex gap-6 mt-8 justify-center">
-        <a href="https://www.instagram.com/rumpi.music/" target="_blank" rel="noopener noreferrer"
-            aria-label="Instagram">
-          <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor"
-              viewBox="0 0 24 24">
-            <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
-          </svg>
-        </a>
-        <a href="https://www.youtube.com/@Rumpime" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor"
-              viewBox="0 0 24 24">
-            <path
-                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-          </svg>
-        </a>
-      </div>
+        </button>
+        <div class="w-[186px] md:w-[250px] lg:w-[300px] h-[50px]  lg:h-[160px]">
+          <img src="assets/logo-rump.svg" class="w-full h-full object-contain" alt="Rump Logo" />
+        </div>
+       
+        <div class="flex gap-6 mt-8 justify-center">
+          <a href="https://www.instagram.com/rumpi.music/" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram">
+            <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor"
+                viewBox="0 0 24 24">
+              <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@Rumpime" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg class="w-6 h-6 text-white hover:text-[#fff200] transition-colors" fill="currentColor"
+                viewBox="0 0 24 24">
+              <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+        </div>
+         <p class="text-white text-center text-sm inline-block  leading-relaxed">Todos os direitos reservados
+          &copy; 2026 Rump by <a href="https://www.atabaque.biz/" target="_blank" rel="noopener noreferrer"
+              class="text-white font-bold text-sm transition-colors inline-block">Atabaque</a> </p>
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
