@@ -18,6 +18,7 @@ const lenis = new Lenis({
     autoRaf: true,
 });
 
+
 const mosaicItems = [
     {
         video: "assets/videos/video1.webm",
@@ -176,54 +177,54 @@ const containerPricing = document.getElementById("pricing-cards");
 const cardsPricing = [
     {
         header: "Plano 1 - Artista Independente",
-        title: "Sugestão de perfil: até 10 mil seguidores no Spotify",
+        title: "Sugestão de perfil: até <strong>10 mil seguidores</strong> no Spotify",
         price: "R$ 49.90",
         features: [
-            "- Até 3 perfis para administrar",
-            "- Até 10 splits automatizados na plataforma",
-            "- Até 5 pagamentos para terceiros.",
-            "- Até 100 MB de backup por conta.",
+            "- Até <strong>3</strong> perfis para administrar",
+            "- Até <strong>10</strong> splits automatizados na plataforma",
+            "- Até <strong>5</strong> pagamentos para terceiros.",
+            "- Até <strong>100 MB</strong> de backup por conta.",
         ],
     },
     {
         header: "Plano 2 - Artistas Emergentes",
-        title: "Sugestão de perfil: entre 10 e 100 mil seguidores no Spotify",
+        title: "Sugestão de perfil: entre <strong>10 mil</strong> e <strong>100 mil seguidores</strong> no Spotify",
         price: "R$ 149.90",
         features: [
-            "- Até 20 perfis para administrar",
-            "- Até 50 splits automatizados na plataforma",
-            "- Até 20 pagamentos para terceiros",
-            "- Até 100 MB de backup por artista.",
+            "- Até <strong>20</strong> perfis para administrar",
+            "- Até <strong>50</strong> splits automatizados na plataforma",
+            "- Até <strong>20</strong> pagamentos para terceiros",
+            "- Até <strong>100 MB</strong> de backup por artista.",
         ],
     },
     {
         header: "Plano 3 - Artistas Consolidados",
-        title: "Sugestão de perfil: entre 100 mil e 1 milhão de seguidores no Spotify",
+        title: "Sugestão de perfil: entre <strong>100 mil</strong> e <strong>1 milhão de seguidores</strong> no Spotify",
         price: "R$ 299.90",
         features: [
-            "- Até 30 perfis para administrar",
-            "- Até 200 splits automatizados na plataforma",
-            "- Até 20 pagamentos para terceiros",
-            "- Até 100 MB de backup por artista.",
+            "- Até <strong>30</strong> perfis para administrar",
+            "- Até <strong>200</strong> splits automatizados na plataforma",
+            "- Até <strong>20</strong> pagamentos para terceiros",
+            "- Até <strong>100 MB</strong> de backup por artista.",
         ],
     },
     {
         header: "Plano 4 - Selos Musicais",
-        title: "Sugestão de perfil: Selos Musicais",
+        title: "Sugestão de perfil: <strong>Selos Musicais</strong>",
         price: "R$ 599.90",
         features: [
-            "- Até 50 perfis para administrar, com opção de organização por selo e sub-selos.",
-            "- Até 300 splits automatizados (para receber e cobrar)",
-            "- Até 50 pagamentos para terceiros.",
-            "- Até 1GB de backup por artista + espaço extra para informações do selo/agência.",
+            "- Até <strong>50</strong> perfis para administrar, com opção de organização por selo e sub-selos.",
+            "- Até <strong>300</strong> splits automatizados (para receber e cobrar)",
+            "- Até <strong>50</strong> pagamentos para terceiros.",
+            "- Até <strong>1GB</strong> de backup por artista + espaço extra para informações do selo/agência.",
         ],
     },
     {
         header: "Plano 5 - Artistas Mainstream",
-        title: "Sugestão de perfil: Acima de 1 milhão de seguidores no Spotify",
+        title: "Sugestão de perfil: Acima de <strong>1 milhão de seguidores</strong> no Spotify",
         price: "",
         features: [
-            "- Entre em contato para saber mais sobre o nosso plano customizado para artistas Mainstream.",
+            "- Entre em contato para saber mais sobre o nosso <strong>plano customizado para artistas Mainstream.</strong> ",
         ],
     },
 ];
@@ -240,7 +241,7 @@ containerPricing.innerHTML = cardsPricing
               <strong class="inline text-[#2810e8]">/ mês</strong>
             </div>
             <div class="pl-[18px] pr-[6px] py-[12px] border-b border-t border-[#2810e8]">
-              <h3 class="text-[#2810e8] font-bold text-[16px]">${card.title}</h3>
+              <h3 class="text-[#2810e8] text-[16px]">${card.title}</h3>
             </div>
            
             <div class="pl-[18px] pr-[6px] py-[24px]  ${!card.price ? "h-[300px]" : ""}">
@@ -249,8 +250,8 @@ containerPricing.innerHTML = cardsPricing
               </ul>
             </div>
             <div class="w-full flex justify-center p-[24px]  border-t border-[#2810e8] ${!card.price ? "h-full" : ""}">
-              <button class="btn-animated w-[250px] font-bold text-lg text-center cursor-pointer ${!card.price ? "self-start" : ""} data-text="Tenho interesse">
-                <span class="relative z-10"> ${!card.price ? "Fale conosco" : "Tenho interesse"}</span>
+              <button id="linkFooter" class="btn-animated w-[250px] font-bold text-lg text-center cursor-pointer ${!card.price ? "self-start" : ""} data-text="Tenho interesse">
+                <span class="relative z-10"> Tenho interesse</span>
               </button>
             </div>
           </div>
@@ -695,3 +696,9 @@ function renderVisualization() {
 }
 
 document.addEventListener("DOMContentLoaded", renderVisualization);
+document.querySelectorAll('#linkFooter').forEach((element) => {
+  element.addEventListener('click', (e) => {
+    e.preventDefault()
+    lenis.scrollTo('#footer')
+  });
+});
