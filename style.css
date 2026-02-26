@@ -440,6 +440,18 @@ section {
    
 }
 
+ .carousel-item {
+    display: flex;    
+    flex-direction: column-reverse;
+    
+}
+
+.btn-slider[aria-current="true"] {
+    background: #1ed760;
+    transition: all 0.3s ease;
+    border:#fff200 solid 1px;
+}
+
 #yt-popup.active {
     opacity: 1;
     pointer-events: auto;
