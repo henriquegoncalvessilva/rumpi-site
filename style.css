@@ -1,17 +1,20 @@
 html {
     overflow-x: hidden;
     max-width: 100vw;
-        scroll-behavior: smooth;
-
 }
 
-*, *::before, *::after {
+canvas {
+    display: block;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: #2810e8;
     overflow-x: hidden;
     max-width: 100vw;
     padding: 0;
@@ -20,18 +23,17 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+    width: 2px;
 }
 ::-webkit-scrollbar-track {
-  background: none;
+    background: none;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1ed760;
+    background: #1ed760;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #818181;
+    background: #818181;
 }
-
 
 body .loading {
     overflow: hidden !important;
@@ -41,7 +43,7 @@ body .loading {
     position: fixed;
     top: 0;
     left: 0;
-    
+
     background-color: #2810e8;
     z-index: 9999;
     display: flex;
@@ -67,12 +69,13 @@ body .loading {
 .team-overlay.active {
     clip-path: inset(0 0 0 0);
     border: 3px solid white;
-    transition: clip-path 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), border 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition:
+        clip-path 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+        border 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-#logo-rumpi{
+#logo-rumpi {
     height: fit-content;
-    
 }
 
 video {
@@ -299,7 +302,6 @@ section {
         padding: 0 15px;
     }
 
-
     .carousel-track {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -316,14 +318,14 @@ section {
 
 @media (min-width: 1024px) {
     .carousel-container {
-           padding: 0;
+        padding: 0;
         max-width: 890px;
         margin: 0 auto;
     }
 
     .carousel-track {
-       gap: 20px 30px;
-    padding-left: 30px;
+        gap: 20px 30px;
+        padding-left: 30px;
     }
 }
 
@@ -367,9 +369,9 @@ section {
     gap: 40px;
 }
 
-.stack-card {    
+.stack-card {
     position: relative;
-    width: 100%;    
+    width: 100%;
     max-width: 100%;
     min-height: fit-content;
     background: #f4f5f5;
@@ -378,7 +380,9 @@ section {
     transform-origin: center center;
     opacity: 1;
     transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
 .stack-card.visible {
@@ -403,16 +407,13 @@ section {
 }
 
 .stack-card-title {
-    padding: 0 10px 0  12px;
+    padding: 0 10px 0 12px;
     border-bottom: 3px solid transparent;
 }
 
 .stack-card-description {
-    padding: 14px  12px;
-    
+    padding: 14px 12px;
 }
-
-
 
 @media (min-width: 768px) {
     .cards-stack-container {
@@ -423,8 +424,6 @@ section {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
-    
-   
 }
 
 @media (min-width: 1024px) {
@@ -437,20 +436,17 @@ section {
         gap: 40px;
         max-width: 1200px;
     }
-    
-   
 }
 
- .carousel-item {
-    display: flex;    
+.carousel-item {
+    display: flex;
     flex-direction: column-reverse;
-    
 }
 
 .btn-slider[aria-current="true"] {
     background: #1ed760;
     transition: all 0.3s ease;
-    border:#fff200 solid 1px;
+    border: #fff200 solid 1px;
 }
 
 #yt-popup.active {

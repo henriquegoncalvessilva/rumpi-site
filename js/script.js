@@ -702,3 +702,106 @@ document.querySelectorAll('#linkFooter').forEach((element) => {
     lenis.scrollTo('#footer')
   });
 });
+
+const canvas = document.getElementById('perspectiveCanvas');
+const ctx = canvas.getContext('2d');
+
+let offset = 0; // Controla o movimento da animação
+const speed = 0.0008; // Velocidade do movimento (ajuste conforme necessário)
+
+function animate() {
+    const w = canvas.width;
+    const h = canvas.height;
+
+    // Limpa o canvas para o próximo quadro (mantém transparente)
+    ctx.clearRect(0, 0, w, h);
+
+    // Configuração da linha
+    ctx.strokeStyle = '#fff200';
+    ctx.lineWidth = 0.5;
+
+    const vpx = w / 2;
+    const vpy = h / 2;
+
+    // Proporções do fundo (ponto de destino)
+    const backScaleW = 0.08;
+    const backScaleH = 0.05;
+    const backW = w * backScaleW;
+    const backH = h * backScaleH;
+    const backX = vpx - backW / 2;
+    const backY = vpy - backH / 2;
+
+    // 1. LINHAS RADIAIS (FIXAS)
+    const numHrzDivisions = 8;
+    const numVrtDivisions = 6;
+
+    for (let i = 0; i <= numHrzDivisions; i++) {
+        const fraction = i / numHrzDivisions;
+        ctx.beginPath();
+        // Teto
+        ctx.moveTo(backX + fraction * backW, backY);
+        ctx.lineTo(w * fraction, 0);
+        // Chão
+        ctx.moveTo(backX + fraction * backW, backY + backH);
+        ctx.lineTo(w * fraction, h);
+        ctx.stroke();
+    }
+
+    for (let i = 0; i <= numVrtDivisions; i++) {
+        const fraction = i / numVrtDivisions;
+        ctx.beginPath();
+        // Parede Esquerda
+        ctx.moveTo(backX, backY + fraction * backH);
+        ctx.lineTo(0, h * fraction);
+        // Parede Direita
+        ctx.moveTo(backX + backW, backY + fraction * backH);
+        ctx.lineTo(w, h * fraction);
+        ctx.stroke();
+    }
+
+    // 2. RETÂNGULOS DE PROFUNDIDADE (ANIMADOS)
+    const numDepthSections = 24;
+    
+    // Incrementa o offset para mover as linhas
+    offset += speed;
+    if (offset >= 1 / numDepthSections) offset = 0;
+
+    for (let i = 0; i <= numDepthSections; i++) {
+        // A posição de cada retângulo é influenciada pelo offset
+        let depthFactor = (i / numDepthSections) - offset;
+        
+        // Se o retângulo "sumir" no fundo, ele volta para frente ou vice-versa
+        if (depthFactor < 0) continue; 
+
+        // Curva de escala para criar a sensação de perspectiva
+        const scale = Math.pow(depthFactor, 2);
+
+        const curW = backW + (w - backW) * scale;
+        const curH = backH + (h - backH) * scale;
+        const curX = vpx - curW / 2;
+        const curY = vpy - curH / 2;
+
+        // Desenha o retângulo se estiver visível
+        if (curW <= w && curH <= h) {
+            // Opacidade baseada na distância (opcional, para suavizar a entrada)
+            ctx.globalAlpha = depthFactor; 
+            ctx.beginPath();
+            ctx.rect(curX, curY, curW, curH);
+            ctx.stroke();
+            ctx.globalAlpha = 0.01;
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+// Ajuste de tamanho
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resize);
+resize();
+animate(); // Inicia o loop
+

@@ -128,4 +128,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
             },
         });
     });
+
+    const socialItems = document.querySelectorAll(".item-social");
+    socialItems.forEach((item) => {
+        gsap.from(item, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            scrollTrigger: {
+                markers: true,
+                trigger: item,
+                start: "top bottom",
+                end: "top 90%",
+                toggleActions: "play none none reverse",
+            },
+        });
+        });
 });
