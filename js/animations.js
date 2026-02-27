@@ -136,7 +136,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             y: 20,
             duration: 0.5,
             scrollTrigger: {
-                markers: true,
                 trigger: item,
                 start: "top bottom",
                 end: "top 90%",
